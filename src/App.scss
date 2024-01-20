@@ -1,0 +1,137 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Montserrat';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  &:hover {
+    cursor: url('../src/assets/cursor/move.cur');
+  }
+}
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    width: 1320px;
+  }
+}
+.form3d:hover {
+  cursor: url('../src/assets/cursor/move.cur'), auto;
+}
+.form3d {
+  border-radius: 42px;
+  border: 3px solid rgb(161, 161, 161);
+}
+.Hotspot {
+  transform: translate3d(-50%, -50%, 0);
+}
+// @keyframes logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
+
+// @media (prefers-reduced-motion: no-preference) {
+//   a:nth-of-type(2) .logo {
+//     animation: logo-spin infinite 20s linear;
+//   }
+// }
+// .man {
+//   //display: flex;
+//   //justify-content: center;
+//   //align-items: center;
+//   overflow: hidden;
+//   height: 700px;
+//   position: relative;
+// }
+
+// .man > img {
+//   height: 700px;
+
+//   position: absolute;
+//   bottom: -1px;
+// }
+// .animate__animated.animate__backInUp {
+//   --animate-duration: 2s;
+// }
+
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+
+//   to {
+//     opacity: 1;
+//   }
+// }
+// @keyframes fadeOut {
+//   0% {
+//     opacity: 1;
+//   }
+//   to {
+//     opacity: 0;
+//   }
+// }
+
+.h2 {
+  font-size: 3.5rem;
+  color: black;
+  align-self: self-start;
+}
+.h3 {
+  font-size: 1.8rem;
+  color: rgb(43, 43, 43);
+}
+.what__p {
+  max-width: 320px;
+  margin-top: 20px;
+  color: rgba(43, 43, 43, 0.8);
+}
+.mt10 {
+  margin-top: 10px;
+}
+.what__img {
+  width: 64px;
+  height: 64px;
+}
+.what__el {
+  width: 270px;
+  background-color: rgba(150, 150, 150, 0.093);
+  padding: 30px 40px;
+  border-radius: 5%;
+  transition: 0.2s ease-in-out;
+}
+.what__el:hover {
+  transform: translateX(5px);
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
+.project__p{
+  color: rgba(43, 43, 43, 0.7);
+}
