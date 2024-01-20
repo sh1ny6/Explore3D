@@ -3,23 +3,35 @@ import './App.css';
 import { styled } from 'styled-components';
 import Header from './components/Header/Header';
 import EffectSection from './components/EffectSection/EffectSection';
-import { cameraOrbitIntrinsics } from '@google/model-viewer/lib/features/controls';
+// import { cameraOrbitIntrinsics } from '@google/model-viewer/lib/features/controls';
 import { TypeAnimation } from 'react-type-animation';
 
 export default function App() {
-  const [camera, setCamera] = useState('-317.1deg 69.51deg 13.51m');
+  const [cameraOrbit, setCameraOrbit] = useState('-317.1deg 69.51deg 13.51m');
+  const [cameraTarget, setCameraTarget] = useState('');
+  const [cameraFov, setFov] = useState('17.9deg');
+  // const modelViewer2 = useRef(null);
 
-  function changeCam() {
-    console.log('clicked');
-    setCamera('-0.3727deg 59.77deg 5.261m');
-  }
+  // function changeCam() {
+  //   console.log('clicked');
+  //   setCamera('-0.3727deg 59.77deg 5.261m');
+  // }
 
-  const modelViewer2 = document.querySelector('#modelscar');
-  const changeFov = (annotation) => {
-    let dataset = annotation.dataset;
-    modelViewer2.cameraTarget = '-0.0017432640324489667m 0.8183699835417795m 1.3979560123354162m';
-    modelViewer2.cameraOrbit = '-0.3727deg 59.77deg 5.261m';
-    modelViewer2.fieldOfView = '17deg';
+  // const modelViewer2 = document.querySelector('#modelscar');
+  const changeCam = (e) => {
+    let dataset = e.target.dataset;
+    if (
+      dataset.position !== undefined &&
+      dataset.orbit !== undefined &&
+      dataset.fov !== undefined
+    ) {
+      setCameraOrbit(dataset.orbit);
+      setCameraTarget(dataset.position);
+      setFov(dataset.fov);
+      // modelViewer2.current.cameraTarget = dataset.position;
+      // modelViewer2.current.cameraOrbit = dataset.orbit;
+      // modelViewer2.current.fieldOfView = dataset.fov;
+    }
   };
 
   ///typingtextheader
@@ -288,6 +300,7 @@ export default function App() {
       </section>
       <div className='form3d'>
         <model-viewer
+          // ref={modelViewer2}
           id='modelscar'
           className='modelscar'
           style={{ width: 1100, height: 800, borderRadius: 38 }}
@@ -298,12 +311,13 @@ export default function App() {
           poster='poster.webp'
           shadow-intensity='1'
           exposure='0.8'
-          camera-orbit={camera}
-          field-of-view='17.9'
+          // auto-rotate
+          camera-orbit={cameraOrbit}
+          camera-target={cameraTarget}
+          field-of-view={cameraFov}
         >
           <button
-          // changeCam,
-            onClick={( changeFov)}
+            onClick={changeCam}
             className='Hotspot'
             id='hotspot-1'
             slot='hotspot-1'
@@ -311,71 +325,87 @@ export default function App() {
             data-normal='-0.010713029820749434m 0.9953146056976239m 0.09609405120528333m'
             data-visibility-attribute='visible'
             data-orbit='-0.3727deg 59.77deg 5.261m'
-            data-target='-0.0017432640324489667m 0.8183699835417795m 1.3979560123354162m'
+            data-fov='12deg'
           >
-            <div className='HotspotAnnotation'>Двигатель</div>
+            Двигатель
           </button>
           <button
+            onClick={changeCam}
             className='Hotspot'
             slot='hotspot-2'
             id='hotspot-2'
             data-position='-0.4271322423377759m 0.8141278148018181m -0.02109609419316504m'
             data-normal='-0.011410756603810392m 0.3109337354359672m -0.9503630920872109m'
             data-visibility-attribute='visible'
+            data-orbit='222.4deg 72.48deg 5.261m'
+            data-fov='12deg'
           >
-            <div className='HotspotAnnotation'>Рулевое управление</div>
+            Рулевое управление
           </button>
           <button
+            onClick={changeCam}
             className='Hotspot'
             slot='hotspot-3'
             id='hotspot-3'
             data-position='0.53448420498753m 0.45093817154737925m -1.3063243590478146m'
             data-normal='-0.6057783061584652m -0.6909737247718588m -0.3944463911137794m'
             data-visibility-attribute='visible'
+            data-orbit='233.6deg 123.9deg 7.991m'
+            data-fov='12deg'
           >
-            <div className='HotspotAnnotation'>Подвеска</div>
+            Подвеска
           </button>
           <button
+            onClick={changeCam}
             className='Hotspot'
             slot='hotspot-4'
             id='hotspot-4'
             data-position='-0.8480648099247934m 0.33435741330162855m 1.3670811985821523m'
             data-normal='-0.9991475301225782m 0.03059796610184273m 0.02771240733647095m'
             data-visibility-attribute='visible'
+            data-orbit='251.5deg 77.32deg 5.261m'
+            data-fov='12deg'
           >
-            <div className='HotspotAnnotation'>Колесо</div>
+            Колесо
           </button>
           <button
+            onClick={changeCam}
             className='Hotspot'
             slot='hotspot-5'
             id='hotspot-5'
             data-position='-0.8148970007896423m 0.3551181250040389m -1.363451396048058m'
             data-normal='-1m 0m 0m'
             data-visibility-attribute='visible'
+            data-orbit='293.6deg 88.5deg 5.261m'
+            data-fov='12deg'
           >
-            <div className='HotspotAnnotation'>Тормозная система</div>
+            Тормозная система
           </button>
           <button
+            onClick={changeCam}
             className='Hotspot'
             slot='hotspot-6'
             id='hotspot-6'
             data-position='-0.008162177111915359m 0.5950701697264106m -0.012376007290469603m'
             data-normal='0.014603436670219481m 0.10542082397487057m -0.9943204662028629m'
             data-visibility-attribute='visible'
+            data-orbit='-244.4deg 63.91deg 5.654m'
+            data-fov='12deg'
           >
-            <div className='HotspotAnnotation'>Трансмиссия</div>
+            Трансмиссия
           </button>
           <button
+            onClick={changeCam}
             className='Hotspot'
             slot='hotspot-7'
             id='hotspot-7'
             data-position='0.6847879996954527m 0.9068931424221599m -1.3433404753521008m'
             data-normal='0.2916569434605815m 0.9534812026888208m -0.07622219788428657m'
             data-visibility-attribute='visible'
+            data-orbit='142.7deg 73.19deg 7.991m'
+            data-fov='13.71deg'
           >
-            <div className='HotspotAnnotation'>
-              Несущая система, т.е. кузов или рама
-            </div>
+            Несущая система, т.е. кузов или рама
           </button>
           <div className='progress-bar hide' slot='progress-bar'>
             <div className='update-bar'></div>
