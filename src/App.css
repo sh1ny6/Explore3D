@@ -110,4 +110,26 @@
 .project__p {
   color: rgba(43, 43, 43, 0.7);
 }
+
+.project_el:hover {
+  border: 1px solid #dedede;
+}
+
+.boximg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.sasha {
+  background-image: url(../src/assets/img/sasha.jpg);
+  background-position-y: -6px;
+}
+
+.vanya {
+  background-image: url(../src/assets/img/vanya.jpg);
+  background-position-y: -30px;
+}
 /*# sourceMappingURL=App.css.map */

@@ -132,6 +132,25 @@
   transform: translateX(5px);
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
 }
-.project__p{
+.project__p {
   color: rgba(43, 43, 43, 0.7);
+}
+.project_el:hover {
+  border: 1px solid #dedede;
+}
+//
+.boximg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+.sasha {
+  background-image: url(../src/assets/img/sasha.jpg);
+  background-position-y: -6px;
+}
+.vanya {
+  background-image: url(../src/assets/img/vanya.jpg);
+  background-position-y: -30px;
 }

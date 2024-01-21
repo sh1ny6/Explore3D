@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import './App.css';
-import { styled } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
 import Header from './components/Header/Header';
 import EffectSection from './components/EffectSection/EffectSection';
 // import { cameraOrbitIntrinsics } from '@google/model-viewer/lib/features/controls';
@@ -151,7 +151,7 @@ export default function App() {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          marginBottom: 200,
+          marginBottom: 160,
         }}
       >
         <h2 className='h2' style={{ alignSelf: 'center' }}>
@@ -159,15 +159,17 @@ export default function App() {
         </h2>
         <ul
           style={{
-            marginTop: 80,
+            marginTop: 100,
             display: 'flex',
             flexWrap: 'wrap',
-            gap: 140,
+            gap: 120,
             justifyContent: 'center',
+            fontFamily: 'Roboto Mono',
           }}
         >
           <li>
             <button
+              className='project__el'
               style={{
                 padding: 0,
                 borderRadius: 80,
@@ -200,6 +202,7 @@ export default function App() {
           </li>
           <li>
             <button
+              className='project__el'
               style={{
                 padding: 0,
                 borderRadius: 80,
@@ -232,6 +235,7 @@ export default function App() {
           </li>
           <li>
             <button
+              className='project__el'
               style={{
                 padding: 0,
                 borderRadius: 80,
@@ -264,6 +268,7 @@ export default function App() {
           </li>
           <li>
             <button
+              className='project__el'
               style={{
                 padding: 0,
                 borderRadius: 80,
@@ -273,12 +278,15 @@ export default function App() {
                 alignItems: 'center',
                 position: 'relative',
                 top: -50,
+                // '&:hover': {
+                //   borderColor: '#2c2c2c',
+                // },
               }}
             >
               <img
-                src='../src/assets/img/posterpc.png'
+                src='../src/assets/img/posterplane.png'
                 alt='pc'
-                style={{ width: 400, height: 400 }}
+                style={{ width: 400, height: 400, paddingRight: 20 }}
               />
               <div
                 style={{
@@ -292,13 +300,75 @@ export default function App() {
                 className='project__p'
                 style={{ width: 300, marginTop: 20, marginBottom: 40 }}
               >
-                Устройство персонального компьютера с наглядными примерами
+                Принципы работы самолёта
               </p>
             </button>
           </li>
         </ul>
       </section>
-      <div className='form3d'>
+      <section
+        className='Authors container'
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          marginBottom: 200,
+        }}
+      >
+        <h2 className='h2' style={{ alignSelf: 'flex-end' }}>
+          Авторы
+        </h2>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: 100,
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div
+              className='author'
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                alignSelf: 'flex-start',
+              }}
+            >
+              <div className='boximg sasha'></div>
+              <h3 className='h3' style={{ marginTop: 20 }}>
+                Александр Распопов
+              </h3>
+              <p className='authors__p' style={{ maxWidth: 240, marginTop: 8 }}>
+                ответственный за интерактивную платформу
+              </p>
+            </div>
+            <div
+              className='author'
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                marginTop: 100,
+                marginLeft: 240,
+              }}
+            >
+              <div className='boximg vanya'></div>
+              <h3 className='h3' style={{ marginTop: 20 }}>
+                Иван Костючков
+              </h3>
+              <p className='authors__p' style={{ marginTop: 8 }}>
+                ответственный за 3D-модели
+              </p>
+            </div>
+          </div>
+          <img
+            src='../src/assets/img/author.svg'
+            alt='comment'
+            style={{ width: 700 }}
+          />
+        </div>
+      </section>
+      {/* <div className='form3d'>
         <model-viewer
           // ref={modelViewer2}
           id='modelscar'
@@ -414,8 +484,60 @@ export default function App() {
             View in your space
           </button>
         </model-viewer>
-      </div>
+      </div> */}
       {/* <EffectSection></EffectSection> */}
+      <footer
+        className='footer'
+        style={{
+          backgroundColor: 'rgba(20, 20, 20, 0.95)',
+          color: 'white',
+          fontFamily: 'Roboto Mono',
+          padding: 16,
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+        }}
+      >
+        <div
+          className='container'
+          style={{
+            alignSelf: 'center',
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
+        >
+          <p style={{ alignSelf: 'center' }}>
+            © 2024 Explore3D. Все права защищены.
+          </p>
+          <ul
+            // className={classes.menu}
+            style={{
+              display: 'flex',
+              width: 400,
+              justifyContent: 'space-between',
+            }}
+          >
+            <a
+              // className={classes.a}
+              id='models'
+            >
+              <li>Материал</li>
+            </a>
+            <a
+              // className={classes.a}
+              href='#benefits'
+            >
+              <li>Преимущества</li>
+            </a>
+            <a
+              // className={classes.a}
+              href='#about'
+            >
+              <li>О создателях</li>
+            </a>
+          </ul>
+        </div>
+      </footer>
     </>
   );
 }
