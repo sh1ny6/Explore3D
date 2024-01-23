@@ -424,6 +424,57 @@ export default function App() {
       </section>
       <div className='form3d'>
         <model-viewer
+          style={{ width: 1100, height: 800, borderRadius: 38 }}
+          src='../src/assets/models/plane/plane3d.glb'
+          ar
+          ar-modes='webxr scene-viewer quick-look'
+          camera-controls
+          tone-mapping='commerce'
+          poster='../src/assets/models/plane/plane3d.webp'
+          shadow-intensity='1'
+          camera-orbit='200deg 73.82deg 1.485m'
+          field-of-view='30deg'
+        >
+          <button
+            class='Hotspot'
+            slot='hotspot-1'
+            data-position='-0.07377009492306269m -0.05625971145866452m 0.0066937693014066935m'
+            data-normal='0m -0.005618033029430497m -0.9999842187279159m'
+            data-visibility-attribute='visible'
+          >
+            Шасси
+          </button>
+          <button
+            class='Hotspot'
+            slot='hotspot-2'
+            data-position='0.09828737087521056m 0.024687464212839766m 0.311938939874637m'
+            data-normal='-0.0009001244441525913m 0.9994168810649938m 0.034133379825401586m'
+            data-visibility-attribute='visible'
+          >
+            Системы управления полётом самолёта
+          </button>
+          <button
+            style={{
+              maxWidth: 370,
+            }}
+            class='Hotspot'
+            slot='hotspot-3'
+            data-position='0.02977480452722242m -0.030387603254379662m -0.047691889707447255m'
+            data-normal='0.0912269180223583m -0.995830130809527m 1.502312537554795e-7m'
+            data-visibility-attribute='visible'
+          >
+            Система силовой установки самолёта для размещения топлива
+          </button>
+          <div class='progress-bar hide' slot='progress-bar'>
+            <div class='update-bar'></div>
+          </div>
+          <button slot='ar-button' id='ar-button'>
+            View in your space
+          </button>
+        </model-viewer>
+      </div>
+      {/* <div className='form3d'>
+        <model-viewer
           // ref={modelViewer2}
           id='modelscar'
           className='modelscar'
@@ -838,7 +889,7 @@ export default function App() {
             View in your space
           </button>
         </model-viewer>
-      </div>
+      </div> */}
       {/* <EffectSection></EffectSection> */}
       <footer
         className='footer'
