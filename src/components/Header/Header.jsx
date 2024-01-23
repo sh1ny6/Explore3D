@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import classes from './Header.module.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 let HeaderContainer = styled.header`
   height: 140px;
@@ -24,10 +25,10 @@ export default function Header() {
     <>
       <div className='container'>
         <HeaderContainer>
-          <a href='index.html' className={classes.logodf}>
+          <Link to='/' className={classes.logodf}>
             <img src='../src/assets/img/icons8-3d-cube-96.png' alt='logo' />
             <LogoName>Explore3D</LogoName>
-          </a>
+          </Link>
           <ul className={classes.menu}>
             <a className={classes.a} id='models'>
               <li>Материал</li>
