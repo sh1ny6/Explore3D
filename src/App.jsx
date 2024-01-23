@@ -2,15 +2,21 @@ import { useState, useRef } from 'react';
 import './App.css';
 import { styled, keyframes } from 'styled-components';
 import Header from './components/Header/Header';
-import EffectSection from './components/EffectSection/EffectSection';
+// import EffectSection from './components/EffectSection/EffectSection';
 // import { cameraOrbitIntrinsics } from '@google/model-viewer/lib/features/controls';
 import { TypeAnimation } from 'react-type-animation';
+import Modal from '../src/components/Modal/Modal.jsx';
+import Button from './components/Button/Button.jsx';
 
 export default function App() {
   const [cameraOrbit, setCameraOrbit] = useState('-317.1deg 69.51deg 13.51m');
   const [cameraTarget, setCameraTarget] = useState('');
-  const [cameraFov, setFov] = useState('17.9deg');
+  const [cameraFov, setFov] = useState('20.45deg');
   // const modelViewer2 = useRef(null);
+  const [modal, setModal] = useState(false);
+  const [models, setModels] = useState('');
+  const [disc, setDisc] = useState('');
+  const [title, setTitle] = useState('');
 
   // function changeCam() {
   //   console.log('clicked');
@@ -34,11 +40,46 @@ export default function App() {
     }
   };
 
+  function openModal(e) {
+    let dataset = e.target.dataset;
+    if (dataset.models !== undefined && dataset.disc !== undefined) {
+      setModels(dataset.models);
+      setDisc(dataset.disc);
+      setTitle(dataset.title);
+      setModal(true);
+    }
+  }
+
   ///typingtextheader
 
   return (
     <>
       <Header />
+      {modal && (
+        <Modal open={modal}>
+          <h2 className='h2' style={{ fontFamily: 'Roboto Mono' }}>
+            {title}
+          </h2>
+          <div style={{ display: 'flex', marginBottom: 20, marginTop: 10 }}>
+            <div
+              className='smallform3d'
+              style={{ width: 500, height: 600 }}
+              dangerouslySetInnerHTML={{
+                __html: models,
+              }}
+            ></div>
+            <p
+              style={{
+                fontFamily: 'Roboto Mono',
+                margin: '40px 0px 0 30px',
+              }}
+            >
+              {disc}
+            </p>
+          </div>
+          <Button onClick={() => setModal(false)}>Закрыть</Button>
+        </Modal>
+      )}
       <section
         className='HellosSection container'
         style={{
@@ -146,12 +187,25 @@ export default function App() {
           </li>
         </ul>
       </section>
+      {/* <div
+        className='leftsideman'
+        style={{
+          display: 'flex',
+          position: 'absolute',
+          left: '-6%',
+          top: '2000px',
+          scale: '0.9',
+        }}
+      >
+        <img src='../src/assets/img/leftsideman.svg' alt='man' />
+      </div> */}
       <section
         className='Projects container'
         style={{
           display: 'flex',
           flexDirection: 'column',
           marginBottom: 160,
+          position: 'relative',
         }}
       >
         <h2 className='h2' style={{ alignSelf: 'center' }}>
@@ -368,17 +422,17 @@ export default function App() {
           />
         </div>
       </section>
-      {/* <div className='form3d'>
+      <div className='form3d'>
         <model-viewer
           // ref={modelViewer2}
           id='modelscar'
           className='modelscar'
           style={{ width: 1100, height: 800, borderRadius: 38 }}
-          src='../src/assets/models/car.glb'
+          src='../src/assets/models/car/car.glb'
           ar
           ar-modes='webxr scene-viewer quick-look'
           camera-controls
-          poster='poster.webp'
+          poster='../src/assets/models/car/car.webp'
           shadow-intensity='1'
           exposure='0.8'
           // auto-rotate
@@ -396,6 +450,9 @@ export default function App() {
             data-visibility-attribute='visible'
             data-orbit='-0.3727deg 59.77deg 5.261m'
             data-fov='12deg'
+            data-title='Двигатель'
+            data-desc='Двигатель — это механическая машина, которая преобразует энергию топлива в механическую энергию и приводит в движение транспортное средство. Для разных двигателей могут использоваться различные виды топлива (например, природный газ, бензин, дизельное топливо и т.д.). Двигатели используются во всем мире для различных автомобилей, мотоциклов, автобусов, кораблей, самолетов, железнодорожных поездов и т. д.'
+            data-img='../src/assets/models/car/dvig.png'
           >
             Двигатель
           </button>
@@ -409,6 +466,9 @@ export default function App() {
             data-visibility-attribute='visible'
             data-orbit='222.4deg 72.48deg 5.261m'
             data-fov='12deg'
+            data-title='Рулевое управление'
+            data-desc='Рулевое управление — совокупность механизмов автомобиля или другой колёсной машины (трактора, комбайна, строительной техники, боевых машин), а также шасси самолёта, обеспечивающая движение по заданному водителем направлению. Состоит из рулевого колеса, рулевого механизма и рулевого привода.'
+            data-img='../src/assets/models/car/dvig.png'
           >
             Рулевое управление
           </button>
@@ -422,6 +482,9 @@ export default function App() {
             data-visibility-attribute='visible'
             data-orbit='233.6deg 123.9deg 7.991m'
             data-fov='12deg'
+            data-title='Подвеска'
+            data-desc='Подвеска автомобиля — совокупность устройств, обеспечивающих упругую связь между несущей системой и колёсами (или мостами) автомобиля, уменьшение динамических нагрузок на несущую систему и колёса и затухание их колебаний, а также регулирование положения кузова автомобиля во время движения. Свойства подвески конкретного автомобиля зависят от различных параметров (неподрессоренных масс автомобиля, кинематики подвески, колёсной базы, колеи, жёсткости кузова) и взаимодействия отдельных деталей (от типа и жёсткости упругих элементов, амортизаторов, стабилизаторов, шарниров, рычагов, и особенно от шин).'
+            data-img='../src/assets/models/car/dvig.png'
           >
             Подвеска
           </button>
@@ -435,6 +498,10 @@ export default function App() {
             data-visibility-attribute='visible'
             data-orbit='251.5deg 77.32deg 5.261m'
             data-fov='12deg'
+            data-title='Колесо'
+            data-desc='
+            Колесо — элемент ходовой части автомобиля, связывающий его с дорогой. Именно колеса предоставляют автомобилю возможность двигаться в заданном направлении. Колеса передают удары на элементы подвески. Ведущие колеса передают усилие от двигателя. Колесо конструктивно состоит из двух основных частей – шины и диска. Колесный диск. Колесный диск выполняет роль основы, на которую устанавливается шина. На диск передается усилие от вращения оси.'
+            data-img='../src/assets/models/car/dvig.png'
           >
             Колесо
           </button>
@@ -448,6 +515,9 @@ export default function App() {
             data-visibility-attribute='visible'
             data-orbit='293.6deg 88.5deg 5.261m'
             data-fov='12deg'
+            data-title='Тормозная система'
+            data-desc='Тормозная система автомобиля предназначена для замедления движущегося автомобиля вплоть до полной остановки и, при необходимости, удержания его на месте, например при парковке. В автомобилях используют разные виды тормозов, но физический принцип работы тормозов всегда един: они преобразуют энергию движения в тепло.'
+            data-img='../src/assets/models/car/dvig.png'
           >
             Тормозная система
           </button>
@@ -461,6 +531,9 @@ export default function App() {
             data-visibility-attribute='visible'
             data-orbit='-244.4deg 63.91deg 5.654m'
             data-fov='12deg'
+            data-title='Трансмиссия'
+            data-desc='Трансмиссия — один из важнейших элементов транспортного средства. Чаще всего под ней понимают определенный тип коробки переключения передач, но в самом широком смысле — это набор механизмов. Ее конструкция тесно связана с изначальной компоновкой транспортного средства, то есть как расположен двигатель и ведущие колеса относительно друг друга. У переднеприводных авто двигатель и трансмиссия это по сути единый узел под капотом. При заднеприводной компоновке двигатель спереди, а ведущие колеса — задние.'
+            data-img='../src/assets/models/car/dvig.png'
           >
             Трансмиссия
           </button>
@@ -474,17 +547,298 @@ export default function App() {
             data-visibility-attribute='visible'
             data-orbit='142.7deg 73.19deg 7.991m'
             data-fov='13.71deg'
+            data-title='Кузов'
+            data-desc='Несущая система - основа автомобиля, к которому крепятся все агрегаты автомобиля и который воспринимает все виды нагрузок. Несущая система автомобиля является его основанием, на котором устанавливаются все элементы автомобиля. В качестве несущей системы могут выступать как рама автомобиля, так и его кузов, который в этом случае называют несущим. Если несущей системой является рама, то дополнительно на неё устанавливается кузов или кабина для размещения водителя, пассажиров и грузов.'
+            data-img='../src/assets/models/car/dvig.png'
           >
             Несущая система, т.е. кузов или рама
           </button>
-          <div className='progress-bar hide' slot='progress-bar'>
-            <div className='update-bar'></div>
-          </div>
           <button slot='ar-button' id='ar-button'>
             View in your space
           </button>
         </model-viewer>
-      </div> */}
+      </div>
+      <div className='form3d'>
+        <model-viewer
+          id='modelspc'
+          className='modelspc'
+          style={{ width: 1100, height: 800, borderRadius: 38 }}
+          src='../src/assets/models/pc/newcomp.glb'
+          ar
+          ar-modes='webxr scene-viewer quick-look'
+          camera-controls
+          poster='../src/assets/models/pc/newcomp.webp'
+          shadow-intensity='1'
+          // auto-rotate
+          camera-orbit='37.39deg 71.99deg 0.5613m'
+          field-of-view='30deg'
+          exposure='1'
+        >
+          <button
+            data-models="<model-viewer
+          loading='eager'
+        className='smallform3d'
+        style='width:500px;height:600px;border-radius:38px;'
+      src='../src/assets/models/pc/SSD.glb'
+      ar
+      ar-modes='webxr scene-viewer quick-look'
+      camera-controls
+      tone-mapping='commerce'
+      poster='../src/assets/models/pc/SSD.webp'
+      shadow-intensity='1'
+      camera-orbit='32.49deg 80.66deg 0.2438m'
+      field-of-view='30deg'
+      auto-rotate
+    ></model-viewer>"
+            data-title='SSD SATA'
+            data-disc='Твердотельный накопитель (SSD) — это компьютерное энергонезависимое немеханическое запоминающее устройство на основе микросхем памяти, альтернатива жёстким дискам (HDD). Наиболее распространённый вид твердотельных накопителей использует для хранения данных флеш-память типа NAND, однако существуют варианты, в которых накопитель создаётся на базе DRAM-памяти, снабжённой дополнительным источником питания — аккумулятором.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-1'
+            data-surface='975 0 1098 200 744 0.453 0.030 0.516'
+            data-visibility-attribute='visible'
+          >
+            SSD
+          </button>
+          <button
+            data-models="<model-viewer
+          loading='eager'
+        className='smallform3d'
+        style='width:500px;height:600px;border-radius:38px;'
+      src='../src/assets/models/pc/RAM.glb'
+      ar
+      ar-modes='webxr scene-viewer quick-look'
+      camera-controls
+      tone-mapping='commerce'
+      poster='../src/assets/models/pc/RAM.webp'
+      shadow-intensity='1'
+      camera-orbit='32.49deg 80.66deg 0.2438m'
+      field-of-view='30deg'
+      auto-rotate
+    ></model-viewer>"
+            data-title='ОЗУ'
+            data-disc='Оперативная память, или оперативное запоминающее устройство (ОЗУ) — временное хранилище для данных, необходимых для работы игр и программ. Оперативка обеспечивает процессору и видеокарте моментальный доступ к запрашиваемой информации, чтобы не пришлось считывать её с медленного жёсткого диска или недостаточно скоростного SSD-накопителя.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-2'
+            data-surface='959 0 56 13 61 0.601 0.319 0.080'
+            data-visibility-attribute='visible'
+          >
+            ОЗУ
+          </button>
+          <button
+            data-models="<model-viewer
+          loading='eager'
+        className='smallform3d'
+        style='width:500px;height:600px;border-radius:38px;'
+      src='../src/assets/models/pc/CPU.glb'
+      ar
+      ar-modes='webxr scene-viewer quick-look'
+      camera-controls
+      tone-mapping='commerce'
+      poster='../src/assets/models/pc/CPU.webp'
+      shadow-intensity='1'
+      camera-orbit='244.4deg 73.1deg 2.882m'
+      field-of-view='30deg'
+      auto-rotate
+    ></model-viewer>"
+            data-title='Процессор'
+            data-disc='Центральный процессор (ЦПУ) – это аппаратный компонент, который является основным вычислительным блоком сервера. Серверы и другие интеллектуальные устройства преобразуют данные в цифровые сигналы и выполняют над ними математические операции. Центральный процессор является основным компонентом, который обрабатывает сигналы и делает возможными вычисления. Он действует как мозг любого вычислительного устройства.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-3'
+            data-surface='140 0 995 1003 1011 0.503 0.105 0.392'
+            data-visibility-attribute='visible'
+          >
+            ЦПУ
+          </button>
+          <button
+            data-models="<model-viewer
+          loading='eager'
+        className='smallform3d'
+        style='width:500px;height:600px;border-radius:38px;'
+      src='../src/assets/models/pc/GPU.glb'
+      ar
+      ar-modes='webxr scene-viewer quick-look'
+      camera-controls
+      tone-mapping='commerce'
+      poster='../src/assets/models/pc/GPU.webp'
+      shadow-intensity='1'
+      camera-orbit='32.49deg 80.66deg 0.2438m'
+      field-of-view='30deg'
+      auto-rotate
+    ></model-viewer>"
+            data-title='Видеокарта'
+            data-disc='Графический процессор (GPU) — это электронная схема, которая может выполнять математические вычисления с высокой скоростью. Вычислительные задачи, такие как рендеринг графики, машинное обучение и редактирование видео, требуют применения сходных математических операций к большому набору данных.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-4'
+            data-surface='768 0 65 152 73 0.380 0.465 0.155'
+            data-visibility-attribute='visible'
+          >
+            Видеокарта
+          </button>
+          <button
+            data-models="<model-viewer
+          loading='eager'
+        className='smallform3d'
+        style='width:500px;height:600px;border-radius:38px;'
+      src='../src/assets/models/pc/PSU.glb'
+      ar
+      ar-modes='webxr scene-viewer quick-look'
+      camera-controls
+      tone-mapping='commerce'
+      poster='../src/assets/models/pc/PSU.webp'
+      shadow-intensity='1'
+      camera-orbit='584.7deg 71.22deg 12.63m'
+      field-of-view='30deg'
+      auto-rotate
+    ></model-viewer>"
+            data-title='Блок питания'
+            data-disc='Блок питания (он же БП) – источник питания в системном блоке, который отвечает за обеспечение энергией остальных компонентов. От БП во многом зависит долговечность и стабильность работы всей системы. Помимо этого, компьютерный блок питания препятствует потере информации с персонального компьютера, предотвращая скачки энергии.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-6'
+            data-surface='1082 0 1317 1390 1320 0.498 0.138 0.363'
+            data-visibility-attribute='visible'
+          >
+            Блок Питания
+          </button>
+          <button
+            data-models="<model-viewer
+          loading='eager'
+        className='smallform3d'
+        style='width:500px;height:600px;border-radius:38px;'
+      src='../src/assets/models/pc/waterCooling.glb'
+      ar
+      ar-modes='webxr scene-viewer quick-look'
+      camera-controls
+      tone-mapping='commerce'
+      poster='../src/assets/models/pc/waterCooling.webp'
+      shadow-intensity='1'
+      camera-orbit='421.1deg 65.17deg 11.49m'
+      field-of-view='30deg'
+      auto-rotate
+    ></model-viewer>"
+            data-title='Водянка'
+            data-disc='Жидкостное охлаждение — лучший способ охладить процессор, потому что вода передает тепло намного эффективнее, чем воздух. Кроме того, системы водяного охлаждения делают работу компьютера тише, избавляя вас от шелеста вентиляторов, которые при серьезной нагрузке начинают работать на высоких оборотах и шуметь. В то же время СВО менее безопасны: например, если трубки для прогона жидкости плохо соединены фитингами — капли воды могут попасть на компонентную базу системной платы и вызвать замыкание.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-7'
+            data-surface='1050 0 53 57 134 0.058 0.285 0.658'
+            data-visibility-attribute='visible'
+          >
+            Водяное охлаждение
+          </button>
+          <button
+            data-models="<model-viewer
+            loading='eager'
+          className='smallform3d'
+          style='width:500px;height:600px;border-radius:38px;'
+        src='../src/assets/models/pc/motherBoard.glb'
+        ar
+        ar-modes='webxr scene-viewer quick-look'
+        camera-controls
+        tone-mapping='commerce'
+        poster='../src/assets/models/pc/motherBoard.webp'
+        shadow-intensity='1'
+        camera-orbit='32.49deg 80.66deg 0.2438m'
+        field-of-view='30deg'
+        auto-rotate
+      ></model-viewer>"
+            data-title='Материнская плата'
+            data-disc='Материнская (системная) плата — это основа построения модульного электронного устройства, например компьютера. Она содержит основную часть устройства, например в случае компьютера — процессор, системную шину или шины, оперативную память, «встроенные» контроллеры периферийных устройств, сервисную логику — и разъёмы для подключения дополнительных взаимозаменяемых плат, называемых платами расширений.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-9'
+            data-surface='207 0 1464 1129 1247 0.029 0.299 0.672'
+            data-visibility-attribute='visible'
+          >
+            Материнская Плата
+          </button>
+          <button
+            data-models="<model-viewer
+          loading='eager'
+        className='smallform3d'
+        style='width:500px;height:600px;border-radius:38px;'
+      src='../src/assets/models/pc/case.glb'
+      ar
+      ar-modes='webxr scene-viewer quick-look'
+      camera-controls
+      tone-mapping='commerce'
+      poster='../src/assets/models/pc/case.webp'
+      shadow-intensity='1'
+      camera-orbit='418.1deg 65.93deg 0.5611m'
+      field-of-view='30deg'
+      auto-rotate
+    ></model-viewer>"
+            data-title='Корпус'
+            data-disc='Компьютерный корпус (системный блок, системник, computer case) служит защитной внешней оболочкой и одновременно каркасом (шасси), к которому крепятся все остальные компоненты компьютера. Фактически это то же самое, что и панцирь для черепахи. Кроме того, корпус участвует в охлаждении остальных комплектующих компьютера, а так же экранирует (если он из металла) электромагнитное излучение остальных компонентов аппаратного обеспечения.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-11'
+            data-surface='708 0 2884 36 967 0.086 0.432 0.482'
+            data-visibility-attribute='visible'
+          >
+            Системный блок
+          </button>
+          <button
+            data-models="<model-viewer
+          loading='eager'
+        className='smallform3d'
+        style='width:500px;height:600px;border-radius:38px;'
+      src='../src/assets/models/pc/M2.glb'
+      ar
+      ar-modes='webxr scene-viewer quick-look'
+      camera-controls
+      tone-mapping='commerce'
+      poster='../src/assets/models/pc/ssdm2.webp'
+      shadow-intensity='1'
+      camera-orbit='77.44deg 56.11deg 4.906m'
+      field-of-view='25deg'
+      auto-rotate
+    ></model-viewer>"
+            data-title='SSD M.2'
+            data-disc='SSD M.2 обеспечивает значительно более высокую скорость передачи данных по сравнению с SSD SATA. Это связано с тем, что SSD M.2 подключается напрямую к материнской плате через интерфейс PCI Express (PCIe) или Serial ATA (SATA), в то время как SSD SATA подключается через интерфейс SATA.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-12'
+            data-surface='668 0 2 14 11 0.493 0.463 0.044'
+            data-visibility-attribute='visible'
+          >
+            SSD
+          </button>
+          <button
+            data-models="<model-viewer
+            loading='eager'
+          className='smallform3d'
+          style='width:500px;height:600px;border-radius:38px;'
+        src='../src/assets/models/pc/radiator.glb'
+        ar
+        ar-modes='webxr scene-viewer quick-look'
+        camera-controls
+        tone-mapping='commerce'
+        poster='../src/assets/models/pc/radiator.webp'
+        shadow-intensity='1'
+        camera-orbit='394.7deg 72.35deg 4.718m'
+        field-of-view='30deg'
+        auto-rotate
+      ></model-viewer>"
+            data-title='Воздушка'
+            data-disc='Воздушная система охлаждения - это самый простой вариант охлаждения — потоком воздуха. Внешнюю поверхность блока цилиндров двигателя с воздушной системой охлаждения делают специальной формы — с ребрами. Так увеличивают площадь поверхности, с которой отводится тепло. Двигатель охлаждается за счет естественной конвекции — потока воздуха, который нагревается при контакте с ребрами и поднимается вверх, уступая место холодному, или за счет набегающего потока воздуха при движении.'
+            onDoubleClick={openModal}
+            className='Hotspot'
+            slot='hotspot-13'
+            data-surface='998 0 366 215 371 0.064 0.850 0.086'
+            data-visibility-attribute='visible'
+          >
+            Воздушное охлаждение
+          </button>
+          <button slot='ar-button' id='ar-button'>
+            View in your space
+          </button>
+        </model-viewer>
+      </div>
       {/* <EffectSection></EffectSection> */}
       <footer
         className='footer'

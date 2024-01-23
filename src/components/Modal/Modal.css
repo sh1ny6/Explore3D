@@ -1,8 +1,11 @@
 dialog {
-  width: 400px;
-  margin: 10rem auto;
-  padding: 1rem;
+  width: 900px;
+  height: 830px;
+  margin: 4rem auto;
+  padding: 2rem;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 40px;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
 }
