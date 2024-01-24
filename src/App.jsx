@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import React from 'react';
 import './App.css';
+import classes from './components/Header/Header.module.css';
 import { styled, keyframes } from 'styled-components';
 import Header from './components/Header/Header.jsx';
 // import EffectSection from './components/EffectSection/EffectSection';
@@ -18,7 +19,7 @@ import {
   useResolvedPath,
 } from 'react-router-dom';
 import 'animate.css/animate.compat.css';
-import ScrollAnimation from 'react-animate-on-scroll';
+// import ScrollAnimation from 'react-animate-on-scroll';
 
 const FadeIn = styled.div`
   animation: 2s ${keyframes`${fadeInLeftBig}`};
@@ -26,6 +27,144 @@ const FadeIn = styled.div`
 const Zoom = styled.div`
   animation: 2s ${keyframes`${zoomIn}`};
 `;
+let HeaderContainer = styled.header`
+  height: 140px;
+  display: flex;
+  padding: 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+`;
+let LogoName = styled.div`
+  text-align: center;
+  align-items: center;
+  color: #181818;
+  text-decoration: none;
+  font-size: 36px;
+  border: none;
+  margin-left: 20px;
+`;
+// let AlignItems = styled.div``;
+// dropdown context for open state
+const DropdownContext = React.createContext({
+  open: false,
+  setOpen: () => {},
+});
+// dropdown component for wrapping and providing context
+function Dropdown({ children, ...props }) {
+  const [open, setOpen] = React.useState(false);
+  const dropdownRef = React.useRef(null);
+
+  // click listeners for closing dropdown
+  React.useEffect(() => {
+    // close dropdown if click outside
+    function close(e) {
+      if (!dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+    // add or remove event listener
+    if (open) {
+      window.addEventListener('click', close);
+    }
+    // cleanup
+    return function removeListener() {
+      window.removeEventListener('click', close);
+    };
+  }, [open]); // only run if open state changes
+
+  return (
+    <DropdownContext.Provider value={{ open, setOpen }}>
+      <div ref={dropdownRef} className='relative m-1'>
+        {children}
+      </div>
+    </DropdownContext.Provider>
+  );
+}
+
+// dropdown button for triggering open
+function DropdownButton({ children, ...props }) {
+  const { open, setOpen } = React.useContext(DropdownContext); // get the context
+
+  // to open and close the dropdown
+  function toggleOpen() {
+    setOpen(!open);
+  }
+
+  return (
+    <button
+      onClick={toggleOpen}
+      className='rounded px-4 py-2 font-bold text-white bg-gray-800 flex items-center'
+    >
+      {children}
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        width={15}
+        height={15}
+        strokeWidth={4}
+        stroke='currentColor'
+        className={`ml-2 ${open ? 'rotate-180' : 'rotate-0'}`}
+      >
+        <path
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+        />
+      </svg>
+    </button>
+  );
+}
+
+// dropdown content for displaying dropdown
+function DropdownContent({ children }) {
+  const { open } = React.useContext(DropdownContext); // get the context
+
+  return (
+    <div
+      className={`absolute z-20 rounded border border-gray-300 bg-white overflow-hidden my-1 overflow-y-auto ${
+        open ? 'shadow-md' : 'hidden'
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
+
+// dropdown list for dropdown menus
+function DropdownList({ children, ...props }) {
+  const { setOpen } = React.useContext(DropdownContext); // get the context
+
+  return (
+    <ul
+      onClick={() => setOpen(false)}
+      className='divide-y divide-gray-200 text-gray-700'
+      {...props}
+    >
+      {children}
+    </ul>
+  );
+}
+
+// dropdown items for dropdown menus
+function DropdownItem({ children, ...props }) {
+  return (
+    <li>
+      <button
+        className='py-3 px-5 whitespace-nowrap hover:underline'
+        {...props}
+      >
+        {children}
+      </button>
+    </li>
+  );
+}
+
+// optional - but I like this pattern to know it must be a child of Dropdown
+Dropdown.Button = DropdownButton;
+Dropdown.Content = DropdownContent;
+Dropdown.List = DropdownList;
+Dropdown.Item = DropdownItem;
 
 export default function App() {
   const [cameraOrbit, setCameraOrbit] = useState('-317.1deg 69.51deg 13.51m');
@@ -477,18 +616,11 @@ export default function App() {
                       </p>
                     </div>
                   </div>
-                  <ScrollAnimation
-                    animateIn='fadeInRight'
-                    duration={2}
-                    initiallyVisible={false}
-                    animateOnce={true}
-                  >
-                    <img
-                      src='../src/assets/img/author.svg'
-                      alt='comment'
-                      style={{ width: 700 }}
-                    />
-                  </ScrollAnimation>
+                  <img
+                    src='../src/assets/img/author.svg'
+                    alt='comment'
+                    style={{ width: 700 }}
+                  />
                 </div>
               </section>
             </>

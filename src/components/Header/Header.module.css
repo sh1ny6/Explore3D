@@ -19,7 +19,7 @@
   color: #181818;
   text-decoration: none;
   font-size: 20px;
-  min-width: 200px;
+  /* min-width: 140px; */
   border: none;
   transition: 0.1s ease-in-out;
 }
@@ -36,4 +36,3 @@ nav > ul {
   height: 50px;
   display: flex;
 }
-
