@@ -8,6 +8,7 @@ import Header from './components/Header/Header.jsx';
 import { TypeAnimation } from 'react-type-animation';
 import Modal from '../src/components/Modal/Modal.jsx';
 import Button from './components/Button/Button.jsx';
+import { fadeInLeftBig, zoomIn } from 'react-animations';
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,6 +17,15 @@ import {
   useMatch,
   useResolvedPath,
 } from 'react-router-dom';
+import 'animate.css/animate.compat.css';
+import ScrollAnimation from 'react-animate-on-scroll';
+
+const FadeIn = styled.div`
+  animation: 2s ${keyframes`${fadeInLeftBig}`};
+`;
+const Zoom = styled.div`
+  animation: 2s ${keyframes`${zoomIn}`};
+`;
 
 export default function App() {
   const [cameraOrbit, setCameraOrbit] = useState('-317.1deg 69.51deg 13.51m');
@@ -115,16 +125,20 @@ export default function App() {
                   justifyContent: 'space-between',
                 }}
               >
-                <div className='man'>
-                  <img
-                    src='../src/assets/img/Malepeepsitting12.svg'
-                    alt='man'
-                    style={{ width: 450, height: 600 }}
-                    // className='animate__animated animate__backInUp man'
-                  />
-                </div>
+                <FadeIn>
+                  <div className='man'>
+                    <img
+                      src='../src/assets/img/Malepeepsitting12.svg'
+                      alt='man'
+                      style={{ width: 450, height: 600 }}
+                      // className='animate__animated animate__backInUp man'
+                    />
+                  </div>
+                </FadeIn>
                 <TypeAnimation
+                  // speed={}
                   sequence={[
+                    1000,
                     'Изучай.\n',
                     1000,
                     'Изучай.\n Познавай.',
@@ -463,11 +477,18 @@ export default function App() {
                       </p>
                     </div>
                   </div>
-                  <img
-                    src='../src/assets/img/author.svg'
-                    alt='comment'
-                    style={{ width: 700 }}
-                  />
+                  <ScrollAnimation
+                    animateIn='fadeInRight'
+                    duration={2}
+                    initiallyVisible={false}
+                    animateOnce={true}
+                  >
+                    <img
+                      src='../src/assets/img/author.svg'
+                      alt='comment'
+                      style={{ width: 700 }}
+                    />
+                  </ScrollAnimation>
                 </div>
               </section>
             </>
