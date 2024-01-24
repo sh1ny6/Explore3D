@@ -1,23 +1,14 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  font-family: 'Montserrat';
-  display: -webkit-box;
-  display: -ms-flexbox;
+  font-family: "Montserrat";
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-item-align: center;
-      align-self: center;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
   position: relative;
   width: 100%;
 }
-
 #root:hover {
   cursor: url("../src/assets/cursor/move.cur");
 }
@@ -27,40 +18,33 @@
     width: 540px;
   }
 }
-
 @media (min-width: 768px) {
   .container {
     width: 720px;
   }
 }
-
 @media (min-width: 992px) {
   .container {
     width: 960px;
   }
 }
-
 @media (min-width: 1200px) {
   .container {
     width: 1140px;
   }
 }
-
 @media (min-width: 1400px) {
   .container {
     width: 1320px;
   }
 }
-
 .panel__h3:hover {
   cursor: url("../src/assets/cursor/link.cur"), auto;
   background-color: #535353;
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .panel__h3 {
-  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   position: relative;
   z-index: 2;
@@ -68,8 +52,8 @@
 
 .GoBack:hover {
   cursor: url("../src/assets/cursor/link.cur"), auto;
-  background-color: #dedede80;
-  border: 2px solid #626262;
+  background-color: rgba(222, 222, 222, 0.5019607843);
+  border: 2px solid rgb(98, 98, 98);
 }
 
 .GoBack {
@@ -77,7 +61,6 @@
   margin-bottom: 100px;
   border-radius: 20px;
   border: 2px solid rgba(142, 142, 142, 0.492);
-  -webkit-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
 }
 
@@ -94,21 +77,18 @@
 }
 
 .Hotspot {
-  -webkit-transform: translate3d(-50%, -50%, 0);
-          transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
 }
 
 .h2 {
   font-size: 3.5rem;
   color: black;
-  -ms-flex-item-align: self-start;
-      -ms-grid-row-align: self-start;
-      align-self: self-start;
+  align-self: self-start;
 }
 
 .h3 {
   font-size: 1.8rem;
-  color: #2b2b2b;
+  color: rgb(43, 43, 43);
 }
 
 .what__p {
@@ -131,15 +111,12 @@
   background-color: rgba(150, 150, 150, 0.093);
   padding: 30px 40px;
   border-radius: 5%;
-  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
 
 .what__el:hover {
-  -webkit-transform: translateX(5px);
-          transform: translateX(5px);
-  -webkit-box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-          box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  transform: translateX(5px);
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
 }
 
 .project__p {
@@ -172,18 +149,25 @@
 }
 
 .authors__p {
-  font-family: 'Roboto Mono';
+  font-family: "Roboto Mono";
 }
 
 .hide {
   opacity: 0;
   height: 0px;
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px);
+  transform: translateY(-100px);
 }
 
 .animation {
-  -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
-/*# sourceMappingURL=App.css.map */
+
+.jdoWCw {
+  display: flex;
+  flex-direction: row;
+}
+
+.cGZEqa {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=App.css.map */

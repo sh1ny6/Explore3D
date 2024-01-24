@@ -16,8 +16,7 @@
 *::before {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border: 0;
 }
 
@@ -54,7 +53,6 @@ a {
   font-weight: 500;
   color: #b5b5b5;
   text-decoration: inherit;
-  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
@@ -64,8 +62,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
@@ -85,7 +81,6 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  -webkit-transition: border-color 0.25s;
   transition: border-color 0.25s;
 }
 
@@ -111,4 +106,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-/*# sourceMappingURL=index.css.map */
+.jdoWCw {
+  display: flex;
+  flex-direction: row;
+}/*# sourceMappingURL=index.css.map */
