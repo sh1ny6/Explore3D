@@ -2,13 +2,20 @@ import { useState, useRef } from 'react';
 import React from 'react';
 import './App.css';
 import { styled, keyframes } from 'styled-components';
-import Header from './components/Header/Header';
+import Header from './components/Header/Header.jsx';
 // import EffectSection from './components/EffectSection/EffectSection';
 // import { cameraOrbitIntrinsics } from '@google/model-viewer/lib/features/controls';
 import { TypeAnimation } from 'react-type-animation';
 import Modal from '../src/components/Modal/Modal.jsx';
 import Button from './components/Button/Button.jsx';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useMatch,
+  useResolvedPath,
+} from 'react-router-dom';
 
 export default function App() {
   const [cameraOrbit, setCameraOrbit] = useState('-317.1deg 69.51deg 13.51m');
@@ -144,6 +151,7 @@ export default function App() {
                 />
               </section>
               <section
+                id='benefits'
                 className='ForWhat container'
                 style={{
                   marginTop: 130,
@@ -210,7 +218,7 @@ export default function App() {
                 </ul>
               </section>
               <section
-                // id='projects'
+                id='projects'
                 className='Projects container'
                 style={{
                   display: 'flex',
@@ -312,40 +320,46 @@ export default function App() {
                     </Link>
                   </li>
                   <li>
-                    <button
-                      className='project__el'
-                      style={{
-                        padding: 0,
-                        borderRadius: 80,
-                        width: 400,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <img
-                        src='../src/assets/img/posterhuman.png'
-                        alt='pc'
-                        style={{ width: 150, height: 350, marginTop: 20 }}
-                      />
-                      <div
+                    <Link to='/human'>
+                      <button
+                        className='project__el'
                         style={{
-                          width: '75%',
-                          height: 1,
-                          backgroundColor: '#ccc',
-                          marginTop: 30,
+                          padding: 0,
+                          borderRadius: 80,
+                          width: 400,
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
                         }}
-                      ></div>
-                      <p
-                        className='project__p'
-                        style={{ width: 300, marginTop: 20, marginBottom: 40 }}
                       >
-                        Как выглядят органы человека?
-                      </p>
-                    </button>
+                        <img
+                          src='../src/assets/img/posterhuman.png'
+                          alt='human'
+                          style={{ width: 150, height: 350, marginTop: 20 }}
+                        />
+                        <div
+                          style={{
+                            width: '75%',
+                            height: 1,
+                            backgroundColor: '#ccc',
+                            marginTop: 30,
+                          }}
+                        ></div>
+                        <p
+                          className='project__p'
+                          style={{
+                            width: 300,
+                            marginTop: 20,
+                            marginBottom: 40,
+                          }}
+                        >
+                          Как выглядят органы человека?
+                        </p>
+                      </button>
+                    </Link>
                   </li>
                   <li>
-                    <Link to='/plane'> 
+                    <Link to='/plane'>
                       <button
                         className='project__el'
                         style={{
@@ -391,6 +405,7 @@ export default function App() {
                 </ul>
               </section>
               <section
+                id='about'
                 className='Authors container'
                 style={{
                   display: 'flex',
@@ -818,6 +833,7 @@ export default function App() {
                     Рулевое управление
                   </button>
                   <button
+                    data-tab='podveska'
                     onClick={changeCam}
                     className='Hotspot'
                     slot='hotspot-3'
@@ -1308,7 +1324,77 @@ export default function App() {
                         </p>
                       </div>
                     </li>
-                    <li></li>
+                    <li
+                      className='panel__el'
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        width: 400,
+                      }}
+                    >
+                      <h3
+                        className='h3 panel__h3'
+                        style={{
+                          padding: 10,
+                          border: '1px solid black',
+                          borderRadius: '5px',
+                          backgroundColor: '#ddd',
+                          marginTop: 20,
+                        }}
+                        data-tab='podveska'
+                        onClick={changeCam}
+                        data-position='0.53448420498753m 0.45093817154737925m -1.3063243590478146m'
+                        data-orbit='233.6deg 123.9deg 7.991m'
+                        data-fov='12deg'
+                      >
+                        Подвеска
+                      </h3>
+                      <div
+                        className={
+                          activeTab === 'podveska'
+                            ? 'animation'
+                            : 'hide animation'
+                        }
+                        // isActive={activeIndex === 0}
+                        // onShow={() => setActiveIndex(0)}
+                      >
+                        <div
+                          style={{
+                            position: 'relative',
+                            left: '50%',
+                            width: 1,
+                            height: 16,
+                            backgroundColor: 'black',
+                            alignSelf: 'center',
+                            marginTop: 5,
+                          }}
+                        ></div>
+                        <p
+                          style={{
+                            maxWidth: 400,
+                            padding: 8,
+                            marginTop: 6,
+                            fontSize: 13,
+                            border: '1px solid rgba(161, 161, 161)',
+                            borderRadius: '4px',
+                            backgroundColor: '#f9f9f9',
+                          }}
+                        >
+                          Подвеска автомобиля — совокупность устройств,
+                          обеспечивающих упругую связь между несущей системой и
+                          колёсами (или мостами) автомобиля, уменьшение
+                          динамических нагрузок на несущую систему и колёса и
+                          затухание их колебаний, а также регулирование
+                          положения кузова автомобиля во время движения.
+                          Свойства подвески конкретного автомобиля зависят от
+                          различных параметров (неподрессоренных масс
+                          автомобиля, кинематики подвески, колёсной базы, колеи,
+                          жёсткости кузова) и взаимодействия отдельных деталей
+                          (от типа и жёсткости упругих элементов, амортизаторов,
+                          стабилизаторов, шарниров, рычагов, и особенно от шин).
+                        </p>
+                      </div>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -1379,6 +1465,229 @@ export default function App() {
             </>
           }
         ></Route>
+        <Route
+          path='/human'
+          element={
+            <>
+              <div
+                className='form3d'
+                style={{ marginTop: 100, marginBottom: 50 }}
+              >
+                <model-viewer
+                  id='modelshuman'
+                  className='modelshuman'
+                  style={{ width: 1100, height: 800, borderRadius: 38 }}
+                  src='../src/assets/models/human/chelovek.glb'
+                  ar
+                  ar-modes='webxr scene-viewer quick-look'
+                  camera-controls
+                  poster='../src/assets/models/human/chelovek.webp'
+                  shadow-intensity='1'
+                  // auto-rotate
+                  camera-orbit='37.39deg 71.99deg 5m'
+                  field-of-view='30deg'
+                  exposure='1.3'
+                  tone-mapping='commerce'
+                >
+                  <button
+                    className='Hotspot'
+                    slot='hotspot-1'
+                    data-position='0.16513825555101794m -0.4449907698349196m -0.00135276831718803m'
+                    data-normal='0.7808282752679202m 0.010624848158140084m 0.6246553586928889m'
+                    data-visibility-attribute='visible'
+                    data-models="<model-viewer
+                    loading='eager'
+                    className='smallform3d'
+                    style='width:500px;height:600px;border-radius:38px;'
+                  src='../src/assets/models/human/bones.glb'
+                                    ar
+                                    ar-modes='webxr scene-viewer quick-look'
+                                    camera-controls
+                                    tone-mapping='commerce'
+                                    shadow-intensity='1'
+                                    camera-orbit='17.24deg 74.61deg 28.41m'
+                                    field-of-view='30deg'
+                                    auto-rotate
+                                    poster='../src/assets/models/human/bones.webp'
+                                  ></model-viewer>"
+                    data-title='Скелет'
+                    data-disc='Скелет человека — совокупность костей человеческого организма, пассивная часть опорно-двигательного аппарата. Служит опорой мягким тканям, точкой приложения мышц, вместилищем и защитой внутренних органов.'
+                    onClick={openModal}
+                  >
+                    Скелет
+                  </button>
+                  <button
+                    className='Hotspot'
+                    slot='hotspot-2'
+                    data-position='0.045776994457783465m 0.7880084526038269m 0.0027966540702434595m'
+                    data-normal='0.6306679074728233m 0.7127425307455717m 0.3070115231554808m'
+                    data-visibility-attribute='visible'
+                    data-models="<model-viewer
+                    loading='eager'
+                    className='smallform3d'
+                    style='width:500px;height:600px;border-radius:38px;'
+                  src='../src/assets/models/human/brain.glb'
+                                    ar
+                                    ar-modes='webxr scene-viewer quick-look'
+                                    camera-controls
+                                    tone-mapping='commerce'
+                                    shadow-intensity='1'
+                                    camera-orbit='17.24deg 74.61deg 28.41m'
+                                    field-of-view='30deg'
+                                    auto-rotate
+                                    poster='../src/assets/models/human/brain.webp'
+                                  ></model-viewer>"
+                    data-title='Мозг'
+                    data-disc='Головной мозг человека — орган центральной нервной системы, состоящей из множества взаимосвязанных между собой нервных клеток и их отростков. Головной мозг человека занимает почти всю полость мозгового отдела черепа, кости которого защищают головной мозг от внешних механических повреждений.'
+                    onClick={openModal}
+                  >
+                    Мозг
+                  </button>
+                  <button
+                    className='Hotspot'
+                    slot='hotspot-3'
+                    data-position='-0.05815729738761436m 0.16683299379509067m -0.13875224126325594m'
+                    data-normal='-0.0986855009242085m -0.43358557629848443m -0.8956923132042887m'
+                    data-visibility-attribute='visible'
+                    data-models="<model-viewer
+                    loading='eager'
+                    className='smallform3d'
+                    style='width:500px;height:600px;border-radius:38px;'
+                  src='../src/assets/models/human/bud.glb'
+                                    ar
+                                    ar-modes='webxr scene-viewer quick-look'
+                                    camera-controls
+                                    tone-mapping='commerce'
+                                    shadow-intensity='1'
+                                    camera-orbit='17.24deg 74.61deg 28.41m'
+                                    field-of-view='30deg'
+                                    auto-rotate
+                                    poster='../src/assets/models/human/bud.webp'
+                                  ></model-viewer>"
+                    data-title='Почка'
+                    data-disc='Почка — парный орган выделительной системы позвоночных, который поддерживает баланс воды и электролитов в организме, фильтрует кровь, выводит продукты метаболизма, у многих позвоночных также вырабатывает гормоны (в частности, ренин), участвует в синтезе или метаболизме отдельных витаминов и поддерживает кровяное давление.'
+                    onClick={openModal}
+                  >
+                    Правая почка
+                  </button>
+                  <button
+                    className='Hotspot'
+                    slot='hotspot-4'
+                    data-position='0.0383653140154169m 0.36214984165569897m 0.052345548399569064m'
+                    data-normal='-0.18977502478652025m 0.22149671545203317m 0.95651693399084m'
+                    data-visibility-attribute='visible'
+                    data-models="<model-viewer
+                    loading='eager'
+                    className='smallform3d'
+                    style='width:500px;height:600px;border-radius:38px;'
+                  src='../src/assets/models/human/heart.glb'
+                                    ar
+                                    ar-modes='webxr scene-viewer quick-look'
+                                    camera-controls
+                                    tone-mapping='commerce'
+                                    shadow-intensity='1'
+                                    camera-orbit='17.24deg 74.61deg 28.41m'
+                                    field-of-view='30deg'
+                                    auto-rotate
+                                    poster='../src/assets/models/human/heart.webp'
+                                  ></model-viewer>"
+                    data-title='Сердце'
+                    data-disc='Сердце человека — это своеобразный насос, который обеспечивает постоянное и непрерывное движение крови по сосудам в нужном направлении. Двустворчатый и трёхстворчатый клапаны обеспечивают ток крови в одном направлении — из предсердий в желудочки.'
+                    onClick={openModal}
+                  >
+                    Сердце
+                  </button>
+                  <button
+                    className='Hotspot'
+                    slot='hotspot-5'
+                    data-position='-0.05681393147857536m 0.242493471754321m 0.057443865987130374m'
+                    data-normal='-0.35121557071919957m 0.026260215221931248m 0.9359262919594069m'
+                    data-visibility-attribute='visible'
+                    data-models="<model-viewer
+                    loading='eager'
+                    className='smallform3d'
+                    style='width:500px;height:600px;border-radius:38px;'
+                  src='../src/assets/models/human/liver.glb'
+                                    ar
+                                    ar-modes='webxr scene-viewer quick-look'
+                                    camera-controls
+                                    tone-mapping='commerce'
+                                    shadow-intensity='1'
+                                    camera-orbit='17.24deg 74.61deg 28.41m'
+                                    field-of-view='30deg'
+                                    auto-rotate
+                                    poster='../src/assets/models/human/liver.webp'
+                                  ></model-viewer>"
+                    data-title='Печень'
+                    data-disc='Печень — самый большой внутренний орган человека. Она находится справа в полости живота под диафрагмой (в правом подреберье) и очень редко печень может находится слева. Печень — непарный орган, то есть второго такого органа в организме нет, и нарушение функции печени опасно для жизни.'
+                    onClick={openModal}
+                  >
+                    Печень
+                  </button>
+                  <button
+                    className='Hotspot'
+                    slot='hotspot-6'
+                    data-position='-0.0604089183176897m 0.4047845086910014m 0.034161480060886096m'
+                    data-normal='-0.09111785143769503m 0.46803378212924174m 0.8790005210096157m'
+                    data-visibility-attribute='visible'
+                    data-models="<model-viewer
+                    loading='eager'
+                    className='smallform3d'
+                    style='width:500px;height:600px;border-radius:38px;'
+                  src='../src/assets/models/human/lungs.glb'
+                                    ar
+                                    ar-modes='webxr scene-viewer quick-look'
+                                    camera-controls
+                                    tone-mapping='commerce'
+                                    shadow-intensity='1'
+                                    camera-orbit='17.24deg 74.61deg 28.41m'
+                                    field-of-view='30deg'
+                                    auto-rotate
+                                    poster='../src/assets/models/human/lungs.webp'
+                                  ></model-viewer>"
+                    data-title='Легкие'
+                    data-disc='Лёгкие выполняют жизненно важную функцию — снабжение организма человека кислородом. Они отвечают за газообмен между кровью и атмосферным воздухом. Лёгкие — это парный орган. Они находятся в грудной клетке рядом с сердцем и крупными кровеносными сосудами.'
+                    onClick={openModal}
+                  >
+                    Легкие
+                  </button>
+                  <button
+                    className='Hotspot'
+                    slot='hotspot-7'
+                    data-position='-0.32615172962916916m -0.03574148915920239m 0.09366410775728784m'
+                    data-normal='-0.5939181014776903m 0.38076078218440595m 0.7087189255885971m'
+                    data-visibility-attribute='visible'
+                    data-models="<model-viewer
+                    loading='eager'
+                    className='smallform3d'
+                    style='width:500px;height:600px;border-radius:38px;'
+                  src='../src/assets/models/human/skin.glb'
+                                    ar
+                                    ar-modes='webxr scene-viewer quick-look'
+                                    camera-controls
+                                    tone-mapping='commerce'
+                                    shadow-intensity='1'
+                                    camera-orbit='212.3deg 76.57deg 0.3826m' field-of-view='30deg'
+                                    auto-rotate
+                                    poster='../src/assets/models/human/skin.webp'
+                                  ></model-viewer>"
+                    data-title='Кожа'
+                    data-disc='Кожа - самый большой орган, который защищает нас от негативного воздействия окружающей среды и нуждается в постоянном и тщательном уходе. Кожа состоит из трех основных слоев - эпидермиса, дермы и подкожной жировой клетчатки. Внешний вид нашей кожи определяется, главным образом, двумя ее слоями - дермой и эпидермисом.'
+                    onClick={openModal}
+                  >
+                    Кожа
+                  </button>
+                  <button slot='ar-button' id='ar-button'>
+                    View in your space
+                  </button>
+                </model-viewer>
+              </div>
+              <Link to='/' className='GoBack'>
+                <h3 className='h3'>К проектам</h3>
+              </Link>
+            </>
+          }
+        />
 
         {/* <div
         className='form3d'
@@ -1909,18 +2218,19 @@ export default function App() {
             <a
               // className={classes.a}
               id='models'
+              href='/#projects'
             >
               <li>Материал</li>
             </a>
             <a
               // className={classes.a}
-              href='#benefits'
+              href='/#benefits'
             >
               <li>Преимущества</li>
             </a>
             <a
               // className={classes.a}
-              href='#about'
+              href='/#about'
             >
               <li>О создателях</li>
             </a>

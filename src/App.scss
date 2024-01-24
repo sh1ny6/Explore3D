@@ -57,7 +57,7 @@
 .panel__h3 {
   transition: 0.2s ease-in-out;
   position: relative;
-  z-index: 2  ;
+  z-index: 2;
 }
 .GoBack:hover {
   cursor: url('../src/assets/cursor/link.cur'), auto;
@@ -201,9 +201,17 @@
 .hide {
   opacity: 0;
   height: 0px;
-  transform:translateY(-100px);
-  
+  transform: translateY(-100px);
 }
 .animation {
   transition: 0.2s ease-in-out;
 }
+.jdoWCw {
+  display: flex;
+  flex-direction: row;
+}
+.cGZEqa {
+  display: flex;
+  justify-content: center;
+}
+
