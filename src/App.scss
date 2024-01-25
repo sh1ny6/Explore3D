@@ -12,6 +12,11 @@
     cursor: url('/assets/cursor/move.cur');
   }
 }
+@media (max-width: 420px) {
+  .container {
+    width: 360px;
+  }
+}
 @media (min-width: 576px) {
   .container {
     width: 540px;
@@ -51,7 +56,7 @@
 // }
 .panel__h3:hover {
   cursor: url('/assets/cursor/link.cur'), auto;
-  background-color: #535353;
+  background-color: #b7b7b7;
   transform: scale(0.95);
 }
 .panel__h3 {
@@ -72,6 +77,12 @@
   transition: 0.1s ease-in-out;
 }
 .form3d {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  border-radius: 42px;
+  border: 3px solid rgba(161, 161, 161, 0.4);
+}
+.form3dcar {
   margin-top: 100px;
   margin-bottom: 50px;
   border-radius: 42px;
