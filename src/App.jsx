@@ -267,7 +267,7 @@ export default function App() {
                 <FadeIn>
                   <div className='man'>
                     <img
-                      src='../src/assets/img/Malepeepsitting12.svg'
+                      src='/assets/img/Malepeepsitting12.svg'
                       alt='man'
                       style={{ width: 450, height: 600 }}
                       // className='animate__animated animate__backInUp man'
@@ -324,7 +324,7 @@ export default function App() {
                   <li className='what__el'>
                     <img
                       className='what__img'
-                      src='../src/assets/img/noad.png'
+                      src='/assets/img/noad.png'
                       alt='noad'
                     />
                     <h3 className='h3 mt10'>Никакой рекламы</h3>
@@ -335,7 +335,7 @@ export default function App() {
                   <li className='what__el'>
                     <img
                       className='what__img'
-                      src='../src/assets/img/box.png'
+                      src='/assets/img/box.png'
                       alt='box'
                     />
                     <h3 className='h3 mt10'>Всё просто и понятно</h3>
@@ -347,7 +347,7 @@ export default function App() {
                   <li className='what__el'>
                     <img
                       className='what__img'
-                      src='../src/assets/img/tel.png'
+                      src='/assets/img/tel.png'
                       alt='mob'
                     />
                     <h3 className='h3 mt10'>Адаптация под телефоны</h3>
@@ -359,7 +359,7 @@ export default function App() {
                   <li className='what__el'>
                     <img
                       className='what__img'
-                      src='../src/assets/img/info.png'
+                      src='/assets/img/info.png'
                       alt='info'
                     />
                     <h3 className='h3 mt10'>Полезная информация</h3>
@@ -407,7 +407,7 @@ export default function App() {
                         }}
                       >
                         <img
-                          src='../src/assets/img/posterpc.png'
+                          src='/assets/img/posterpc.png'
                           alt='pc'
                           style={{ width: 400, height: 400 }}
                         />
@@ -447,7 +447,7 @@ export default function App() {
                         }}
                       >
                         <img
-                          src='../src/assets/img/postercar.png'
+                          src='/assets/img/postercar.png'
                           alt='pc'
                           style={{ width: 380, height: 380, padding: '0 20' }}
                         />
@@ -486,7 +486,7 @@ export default function App() {
                         }}
                       >
                         <img
-                          src='../src/assets/img/posterhuman.png'
+                          src='/assets/img/posterhuman.png'
                           alt='human'
                           style={{ width: 150, height: 350, marginTop: 20 }}
                         />
@@ -530,7 +530,7 @@ export default function App() {
                         }}
                       >
                         <img
-                          src='../src/assets/img/posterplane.png'
+                          src='/assets/img/posterplane.png'
                           alt='pc'
                           style={{ width: 400, height: 400, paddingRight: 20 }}
                         />
@@ -617,7 +617,7 @@ export default function App() {
                     </div>
                   </div>
                   <img
-                    src='../src/assets/img/author.svg'
+                    src='/assets/img/author.svg'
                     alt='comment'
                     style={{ width: 700 }}
                   />
@@ -639,11 +639,11 @@ export default function App() {
                   id='modelspc'
                   className='modelspc'
                   style={{ width: 1100, height: 800, borderRadius: 38 }}
-                  src='../src/assets/models/pc/newcomp.glb'
+                  src='/assets/models/pc/newcomp.glb'
                   ar
                   ar-modes='webxr scene-viewer quick-look'
                   camera-controls
-                  poster='../src/assets/models/pc/newcomp.webp'
+                  poster='/assets/models/pc/newcomp.webp'
                   shadow-intensity='1'
                   // auto-rotate
                   camera-orbit='37.39deg 71.99deg 0.5613m'
@@ -655,12 +655,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/SSD.glb'
+      src='/assets/models/pc/SSD.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/SSD.webp'
+      poster='/assets/models/pc/SSD.webp'
       shadow-intensity='1'
       camera-orbit='32.49deg 80.66deg 0.2438m'
       field-of-view='30deg'
@@ -681,12 +681,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/RAM.glb'
+      src='/assets/models/pc/RAM.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/RAM.webp'
+      poster='/assets/models/pc/RAM.webp'
       shadow-intensity='1'
       camera-orbit='32.49deg 80.66deg 0.2438m'
       field-of-view='30deg'
@@ -707,12 +707,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/CPU.glb'
+      src='/assets/models/pc/CPU.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/CPU.webp'
+      poster='/assets/models/pc/CPU.webp'
       shadow-intensity='1'
       camera-orbit='244.4deg 73.1deg 2.882m'
       field-of-view='30deg'
@@ -733,12 +733,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/GPU.glb'
+      src='/assets/models/pc/GPU.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/GPU.webp'
+      poster='/assets/models/pc/GPU.webp'
       shadow-intensity='1'
       camera-orbit='32.49deg 80.66deg 0.2438m'
       field-of-view='30deg'
@@ -759,12 +759,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/PSU.glb'
+      src='/assets/models/pc/PSU.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/PSU.webp'
+      poster='/assets/models/pc/PSU.webp'
       shadow-intensity='1'
       camera-orbit='584.7deg 71.22deg 12.63m'
       field-of-view='30deg'
@@ -785,12 +785,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/waterCooling.glb'
+      src='/assets/models/pc/waterCooling.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/waterCooling.webp'
+      poster='/assets/models/pc/waterCooling.webp'
       shadow-intensity='1'
       camera-orbit='421.1deg 65.17deg 11.49m'
       field-of-view='30deg'
@@ -811,12 +811,12 @@ export default function App() {
             loading='eager'
           className='smallform3d'
           style='width:500px;height:600px;border-radius:38px;'
-        src='../src/assets/models/pc/motherBoard.glb'
+        src='/assets/models/pc/motherBoard.glb'
         ar
         ar-modes='webxr scene-viewer quick-look'
         camera-controls
         tone-mapping='commerce'
-        poster='../src/assets/models/pc/motherBoard.webp'
+        poster='/assets/models/pc/motherBoard.webp'
         shadow-intensity='1'
         camera-orbit='32.49deg 80.66deg 0.2438m'
         field-of-view='30deg'
@@ -837,12 +837,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/case.glb'
+      src='/assets/models/pc/case.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/case.webp'
+      poster='/assets/models/pc/case.webp'
       shadow-intensity='1'
       camera-orbit='418.1deg 65.93deg 0.5611m'
       field-of-view='30deg'
@@ -863,12 +863,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/M2.glb'
+      src='/assets/models/pc/M2.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/ssdm2.webp'
+      poster='/assets/models/pc/ssdm2.webp'
       shadow-intensity='1'
       camera-orbit='77.44deg 56.11deg 4.906m'
       field-of-view='25deg'
@@ -889,12 +889,12 @@ export default function App() {
             loading='eager'
           className='smallform3d'
           style='width:500px;height:600px;border-radius:38px;'
-        src='../src/assets/models/pc/radiator.glb'
+        src='/assets/models/pc/radiator.glb'
         ar
         ar-modes='webxr scene-viewer quick-look'
         camera-controls
         tone-mapping='commerce'
-        poster='../src/assets/models/pc/radiator.webp'
+        poster='/assets/models/pc/radiator.webp'
         shadow-intensity='1'
         camera-orbit='394.7deg 72.35deg 4.718m'
         field-of-view='30deg'
@@ -938,11 +938,11 @@ export default function App() {
                     height: 800,
                     borderRadius: '38px 0 0 38px',
                   }}
-                  src='../src/assets/models/car/car.glb'
+                  src='/assets/models/car/car.glb'
                   ar
                   ar-modes='webxr scene-viewer quick-look'
                   camera-controls
-                  poster='../src/assets/models/car/car.webp'
+                  poster='/assets/models/car/car.webp'
                   shadow-intensity='1'
                   exposure='0.8'
                   // auto-rotate
@@ -964,7 +964,7 @@ export default function App() {
                     data-fov='12deg'
                     data-title='Двигатель'
                     data-desc='Двигатель — это механическая машина, которая преобразует энергию топлива в механическую энергию и приводит в движение транспортное средство. Для разных двигателей могут использоваться различные виды топлива (например, природный газ, бензин, дизельное топливо и т.д.). Двигатели используются во всем мире для различных автомобилей, мотоциклов, автобусов, кораблей, самолетов, железнодорожных поездов и т. д.'
-                    data-img='../src/assets/models/car/dvig.png'
+                    data-img='/assets/models/car/dvig.png'
                   >
                     Двигатель
                   </button>
@@ -981,7 +981,7 @@ export default function App() {
                     data-fov='12deg'
                     data-title='Рулевое управление'
                     data-desc='Рулевое управление — совокупность механизмов автомобиля или другой колёсной машины (трактора, комбайна, строительной техники, боевых машин), а также шасси самолёта, обеспечивающая движение по заданному водителем направлению. Состоит из рулевого колеса, рулевого механизма и рулевого привода.'
-                    data-img='../src/assets/models/car/dvig.png'
+                    data-img='/assets/models/car/dvig.png'
                   >
                     Рулевое управление
                   </button>
@@ -998,7 +998,7 @@ export default function App() {
                     data-fov='12deg'
                     data-title='Подвеска'
                     data-desc='Подвеска автомобиля — совокупность устройств, обеспечивающих упругую связь между несущей системой и колёсами (или мостами) автомобиля, уменьшение динамических нагрузок на несущую систему и колёса и затухание их колебаний, а также регулирование положения кузова автомобиля во время движения. Свойства подвески конкретного автомобиля зависят от различных параметров (неподрессоренных масс автомобиля, кинематики подвески, колёсной базы, колеи, жёсткости кузова) и взаимодействия отдельных деталей (от типа и жёсткости упругих элементов, амортизаторов, стабилизаторов, шарниров, рычагов, и особенно от шин).'
-                    data-img='../src/assets/models/car/dvig.png'
+                    data-img='/assets/models/car/dvig.png'
                   >
                     Подвеска
                   </button>
@@ -1016,7 +1016,7 @@ export default function App() {
                     data-title='Колесо'
                     data-desc='
             Колесо — элемент ходовой части автомобиля, связывающий его с дорогой. Именно колеса предоставляют автомобилю возможность двигаться в заданном направлении. Колеса передают удары на элементы подвески. Ведущие колеса передают усилие от двигателя. Колесо конструктивно состоит из двух основных частей – шины и диска. Колесный диск. Колесный диск выполняет роль основы, на которую устанавливается шина. На диск передается усилие от вращения оси.'
-                    data-img='../src/assets/models/car/dvig.png'
+                    data-img='/assets/models/car/dvig.png'
                   >
                     Колесо
                   </button>
@@ -1033,7 +1033,7 @@ export default function App() {
                     data-fov='12deg'
                     data-title='Тормозная система'
                     data-desc='Тормозная система автомобиля предназначена для замедления движущегося автомобиля вплоть до полной остановки и, при необходимости, удержания его на месте, например при парковке. В автомобилях используют разные виды тормозов, но физический принцип работы тормозов всегда един: они преобразуют энергию движения в тепло.'
-                    data-img='../src/assets/models/car/dvig.png'
+                    data-img='/assets/models/car/dvig.png'
                   >
                     Тормозная система
                   </button>
@@ -1050,7 +1050,7 @@ export default function App() {
                     data-fov='12deg'
                     data-title='Трансмиссия'
                     data-desc='Трансмиссия — один из важнейших элементов транспортного средства. Чаще всего под ней понимают определенный тип коробки переключения передач, но в самом широком смысле — это набор механизмов. Ее конструкция тесно связана с изначальной компоновкой транспортного средства, то есть как расположен двигатель и ведущие колеса относительно друг друга. У переднеприводных авто двигатель и трансмиссия это по сути единый узел под капотом. При заднеприводной компоновке двигатель спереди, а ведущие колеса — задние.'
-                    data-img='../src/assets/models/car/dvig.png'
+                    data-img='/assets/models/car/dvig.png'
                   >
                     Трансмиссия
                   </button>
@@ -1067,7 +1067,7 @@ export default function App() {
                     data-fov='13.71deg'
                     data-title='Кузов'
                     data-desc='Несущая система - основа автомобиля, к которому крепятся все агрегаты автомобиля и который воспринимает все виды нагрузок. Несущая система автомобиля является его основанием, на котором устанавливаются все элементы автомобиля. В качестве несущей системы могут выступать как рама автомобиля, так и его кузов, который в этом случае называют несущим. Если несущей системой является рама, то дополнительно на неё устанавливается кузов или кабина для размещения водителя, пассажиров и грузов.'
-                    data-img='../src/assets/models/car/dvig.png'
+                    data-img='/assets/models/car/dvig.png'
                   >
                     Несущая система, т.е. кузов или рама
                   </button>
@@ -1564,12 +1564,12 @@ export default function App() {
               <div className='form3d'>
                 <model-viewer
                   style={{ width: 1100, height: 800, borderRadius: 38 }}
-                  src='../src/assets/models/plane/plane3d.glb'
+                  src='/assets/models/plane/plane3d.glb'
                   ar
                   ar-modes='webxr scene-viewer quick-look'
                   camera-controls
                   tone-mapping='commerce'
-                  poster='../src/assets/models/plane/plane3d.webp'
+                  poster='/assets/models/plane/plane3d.webp'
                   shadow-intensity='1'
                   camera-orbit='200deg 73.82deg 1.485m'
                   field-of-view='30deg'
@@ -1630,11 +1630,11 @@ export default function App() {
                   id='modelshuman'
                   className='modelshuman'
                   style={{ width: 1100, height: 800, borderRadius: 38 }}
-                  src='../src/assets/models/human/chelovek.glb'
+                  src='/assets/models/human/chelovek.glb'
                   ar
                   ar-modes='webxr scene-viewer quick-look'
                   camera-controls
-                  poster='../src/assets/models/human/chelovek.webp'
+                  poster='/assets/models/human/chelovek.webp'
                   shadow-intensity='1'
                   // auto-rotate
                   camera-orbit='37.39deg 71.99deg 5m'
@@ -1652,7 +1652,7 @@ export default function App() {
                     loading='eager'
                     className='smallform3d'
                     style='width:500px;height:600px;border-radius:38px;'
-                  src='../src/assets/models/human/bones.glb'
+                  src='/assets/models/human/bones.glb'
                                     ar
                                     ar-modes='webxr scene-viewer quick-look'
                                     camera-controls
@@ -1661,7 +1661,7 @@ export default function App() {
                                     camera-orbit='17.24deg 74.61deg 28.41m'
                                     field-of-view='30deg'
                                     auto-rotate
-                                    poster='../src/assets/models/human/bones.webp'
+                                    poster='/assets/models/human/bones.webp'
                                   ></model-viewer>"
                     data-title='Скелет'
                     data-disc='Скелет человека — совокупность костей человеческого организма, пассивная часть опорно-двигательного аппарата. Служит опорой мягким тканям, точкой приложения мышц, вместилищем и защитой внутренних органов.'
@@ -1679,7 +1679,7 @@ export default function App() {
                     loading='eager'
                     className='smallform3d'
                     style='width:500px;height:600px;border-radius:38px;'
-                  src='../src/assets/models/human/brain.glb'
+                  src='/assets/models/human/brain.glb'
                                     ar
                                     ar-modes='webxr scene-viewer quick-look'
                                     camera-controls
@@ -1688,7 +1688,7 @@ export default function App() {
                                     camera-orbit='17.24deg 74.61deg 28.41m'
                                     field-of-view='30deg'
                                     auto-rotate
-                                    poster='../src/assets/models/human/brain.webp'
+                                    poster='/assets/models/human/brain.webp'
                                   ></model-viewer>"
                     data-title='Мозг'
                     data-disc='Головной мозг человека — орган центральной нервной системы, состоящей из множества взаимосвязанных между собой нервных клеток и их отростков. Головной мозг человека занимает почти всю полость мозгового отдела черепа, кости которого защищают головной мозг от внешних механических повреждений.'
@@ -1706,7 +1706,7 @@ export default function App() {
                     loading='eager'
                     className='smallform3d'
                     style='width:500px;height:600px;border-radius:38px;'
-                  src='../src/assets/models/human/bud.glb'
+                  src='/assets/models/human/bud.glb'
                                     ar
                                     ar-modes='webxr scene-viewer quick-look'
                                     camera-controls
@@ -1715,7 +1715,7 @@ export default function App() {
                                     camera-orbit='17.24deg 74.61deg 28.41m'
                                     field-of-view='30deg'
                                     auto-rotate
-                                    poster='../src/assets/models/human/bud.webp'
+                                    poster='/assets/models/human/bud.webp'
                                   ></model-viewer>"
                     data-title='Почка'
                     data-disc='Почка — парный орган выделительной системы позвоночных, который поддерживает баланс воды и электролитов в организме, фильтрует кровь, выводит продукты метаболизма, у многих позвоночных также вырабатывает гормоны (в частности, ренин), участвует в синтезе или метаболизме отдельных витаминов и поддерживает кровяное давление.'
@@ -1733,7 +1733,7 @@ export default function App() {
                     loading='eager'
                     className='smallform3d'
                     style='width:500px;height:600px;border-radius:38px;'
-                  src='../src/assets/models/human/heart.glb'
+                  src='/assets/models/human/heart.glb'
                                     ar
                                     ar-modes='webxr scene-viewer quick-look'
                                     camera-controls
@@ -1742,7 +1742,7 @@ export default function App() {
                                     camera-orbit='17.24deg 74.61deg 28.41m'
                                     field-of-view='30deg'
                                     auto-rotate
-                                    poster='../src/assets/models/human/heart.webp'
+                                    poster='/assets/models/human/heart.webp'
                                   ></model-viewer>"
                     data-title='Сердце'
                     data-disc='Сердце человека — это своеобразный насос, который обеспечивает постоянное и непрерывное движение крови по сосудам в нужном направлении. Двустворчатый и трёхстворчатый клапаны обеспечивают ток крови в одном направлении — из предсердий в желудочки.'
@@ -1760,7 +1760,7 @@ export default function App() {
                     loading='eager'
                     className='smallform3d'
                     style='width:500px;height:600px;border-radius:38px;'
-                  src='../src/assets/models/human/liver.glb'
+                  src='/assets/models/human/liver.glb'
                                     ar
                                     ar-modes='webxr scene-viewer quick-look'
                                     camera-controls
@@ -1769,7 +1769,7 @@ export default function App() {
                                     camera-orbit='17.24deg 74.61deg 28.41m'
                                     field-of-view='30deg'
                                     auto-rotate
-                                    poster='../src/assets/models/human/liver.webp'
+                                    poster='/assets/models/human/liver.webp'
                                   ></model-viewer>"
                     data-title='Печень'
                     data-disc='Печень — самый большой внутренний орган человека. Она находится справа в полости живота под диафрагмой (в правом подреберье) и очень редко печень может находится слева. Печень — непарный орган, то есть второго такого органа в организме нет, и нарушение функции печени опасно для жизни.'
@@ -1787,7 +1787,7 @@ export default function App() {
                     loading='eager'
                     className='smallform3d'
                     style='width:500px;height:600px;border-radius:38px;'
-                  src='../src/assets/models/human/lungs.glb'
+                  src='/assets/models/human/lungs.glb'
                                     ar
                                     ar-modes='webxr scene-viewer quick-look'
                                     camera-controls
@@ -1796,7 +1796,7 @@ export default function App() {
                                     camera-orbit='17.24deg 74.61deg 28.41m'
                                     field-of-view='30deg'
                                     auto-rotate
-                                    poster='../src/assets/models/human/lungs.webp'
+                                    poster='/assets/models/human/lungs.webp'
                                   ></model-viewer>"
                     data-title='Легкие'
                     data-disc='Лёгкие выполняют жизненно важную функцию — снабжение организма человека кислородом. Они отвечают за газообмен между кровью и атмосферным воздухом. Лёгкие — это парный орган. Они находятся в грудной клетке рядом с сердцем и крупными кровеносными сосудами.'
@@ -1814,7 +1814,7 @@ export default function App() {
                     loading='eager'
                     className='smallform3d'
                     style='width:500px;height:600px;border-radius:38px;'
-                  src='../src/assets/models/human/skin.glb'
+                  src='/assets/models/human/skin.glb'
                                     ar
                                     ar-modes='webxr scene-viewer quick-look'
                                     camera-controls
@@ -1822,7 +1822,7 @@ export default function App() {
                                     shadow-intensity='1'
                                     camera-orbit='212.3deg 76.57deg 0.3826m' field-of-view='30deg'
                                     auto-rotate
-                                    poster='../src/assets/models/human/skin.webp'
+                                    poster='/assets/models/human/skin.webp'
                                   ></model-viewer>"
                     data-title='Кожа'
                     data-disc='Кожа - самый большой орган, который защищает нас от негативного воздействия окружающей среды и нуждается в постоянном и тщательном уходе. Кожа состоит из трех основных слоев - эпидермиса, дермы и подкожной жировой клетчатки. Внешний вид нашей кожи определяется, главным образом, двумя ее слоями - дермой и эпидермисом.'
@@ -1851,11 +1851,11 @@ export default function App() {
           id='modelscar'
           className='modelscar'
           style={{ width: 1100, height: 800, borderRadius: '38px 0 0 38px' }}
-          src='../src/assets/models/car/car.glb'
+          src='/assets/models/car/car.glb'
           ar
           ar-modes='webxr scene-viewer quick-look'
           camera-controls
-          poster='../src/assets/models/car/car.webp'
+          poster='/assets/models/car/car.webp'
           shadow-intensity='1'
           exposure='0.8'
           // auto-rotate
@@ -1876,7 +1876,7 @@ export default function App() {
             data-fov='12deg'
             data-title='Двигатель'
             data-desc='Двигатель — это механическая машина, которая преобразует энергию топлива в механическую энергию и приводит в движение транспортное средство. Для разных двигателей могут использоваться различные виды топлива (например, природный газ, бензин, дизельное топливо и т.д.). Двигатели используются во всем мире для различных автомобилей, мотоциклов, автобусов, кораблей, самолетов, железнодорожных поездов и т. д.'
-            data-img='../src/assets/models/car/dvig.png'
+            data-img='/assets/models/car/dvig.png'
           >
             Двигатель
           </button>
@@ -1892,7 +1892,7 @@ export default function App() {
             data-fov='12deg'
             data-title='Рулевое управление'
             data-desc='Рулевое управление — совокупность механизмов автомобиля или другой колёсной машины (трактора, комбайна, строительной техники, боевых машин), а также шасси самолёта, обеспечивающая движение по заданному водителем направлению. Состоит из рулевого колеса, рулевого механизма и рулевого привода.'
-            data-img='../src/assets/models/car/dvig.png'
+            data-img='/assets/models/car/dvig.png'
           >
             Рулевое управление
           </button>
@@ -1908,7 +1908,7 @@ export default function App() {
             data-fov='12deg'
             data-title='Подвеска'
             data-desc='Подвеска автомобиля — совокупность устройств, обеспечивающих упругую связь между несущей системой и колёсами (или мостами) автомобиля, уменьшение динамических нагрузок на несущую систему и колёса и затухание их колебаний, а также регулирование положения кузова автомобиля во время движения. Свойства подвески конкретного автомобиля зависят от различных параметров (неподрессоренных масс автомобиля, кинематики подвески, колёсной базы, колеи, жёсткости кузова) и взаимодействия отдельных деталей (от типа и жёсткости упругих элементов, амортизаторов, стабилизаторов, шарниров, рычагов, и особенно от шин).'
-            data-img='../src/assets/models/car/dvig.png'
+            data-img='/assets/models/car/dvig.png'
           >
             Подвеска
           </button>
@@ -1925,7 +1925,7 @@ export default function App() {
             data-title='Колесо'
             data-desc='
             Колесо — элемент ходовой части автомобиля, связывающий его с дорогой. Именно колеса предоставляют автомобилю возможность двигаться в заданном направлении. Колеса передают удары на элементы подвески. Ведущие колеса передают усилие от двигателя. Колесо конструктивно состоит из двух основных частей – шины и диска. Колесный диск. Колесный диск выполняет роль основы, на которую устанавливается шина. На диск передается усилие от вращения оси.'
-            data-img='../src/assets/models/car/dvig.png'
+            data-img='/assets/models/car/dvig.png'
           >
             Колесо
           </button>
@@ -1941,7 +1941,7 @@ export default function App() {
             data-fov='12deg'
             data-title='Тормозная система'
             data-desc='Тормозная система автомобиля предназначена для замедления движущегося автомобиля вплоть до полной остановки и, при необходимости, удержания его на месте, например при парковке. В автомобилях используют разные виды тормозов, но физический принцип работы тормозов всегда един: они преобразуют энергию движения в тепло.'
-            data-img='../src/assets/models/car/dvig.png'
+            data-img='/assets/models/car/dvig.png'
           >
             Тормозная система
           </button>
@@ -1957,7 +1957,7 @@ export default function App() {
             data-fov='12deg'
             data-title='Трансмиссия'
             data-desc='Трансмиссия — один из важнейших элементов транспортного средства. Чаще всего под ней понимают определенный тип коробки переключения передач, но в самом широком смысле — это набор механизмов. Ее конструкция тесно связана с изначальной компоновкой транспортного средства, то есть как расположен двигатель и ведущие колеса относительно друг друга. У переднеприводных авто двигатель и трансмиссия это по сути единый узел под капотом. При заднеприводной компоновке двигатель спереди, а ведущие колеса — задние.'
-            data-img='../src/assets/models/car/dvig.png'
+            data-img='/assets/models/car/dvig.png'
           >
             Трансмиссия
           </button>
@@ -1973,7 +1973,7 @@ export default function App() {
             data-fov='13.71deg'
             data-title='Кузов'
             data-desc='Несущая система - основа автомобиля, к которому крепятся все агрегаты автомобиля и который воспринимает все виды нагрузок. Несущая система автомобиля является его основанием, на котором устанавливаются все элементы автомобиля. В качестве несущей системы могут выступать как рама автомобиля, так и его кузов, который в этом случае называют несущим. Если несущей системой является рама, то дополнительно на неё устанавливается кузов или кабина для размещения водителя, пассажиров и грузов.'
-            data-img='../src/assets/models/car/dvig.png'
+            data-img='/assets/models/car/dvig.png'
           >
             Несущая система, т.е. кузов или рама
           </button>
@@ -2058,11 +2058,11 @@ export default function App() {
           id='modelspc'
           className='modelspc'
           style={{ width: 1100, height: 800, borderRadius: 38 }}
-          src='../src/assets/models/pc/newcomp.glb'
+          src='/assets/models/pc/newcomp.glb'
           ar
           ar-modes='webxr scene-viewer quick-look'
           camera-controls
-          poster='../src/assets/models/pc/newcomp.webp'
+          poster='/assets/models/pc/newcomp.webp'
           shadow-intensity='1'
           // auto-rotate
           camera-orbit='37.39deg 71.99deg 0.5613m'
@@ -2074,12 +2074,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/SSD.glb'
+      src='/assets/models/pc/SSD.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/SSD.webp'
+      poster='/assets/models/pc/SSD.webp'
       shadow-intensity='1'
       camera-orbit='32.49deg 80.66deg 0.2438m'
       field-of-view='30deg'
@@ -2100,12 +2100,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/RAM.glb'
+      src='/assets/models/pc/RAM.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/RAM.webp'
+      poster='/assets/models/pc/RAM.webp'
       shadow-intensity='1'
       camera-orbit='32.49deg 80.66deg 0.2438m'
       field-of-view='30deg'
@@ -2126,12 +2126,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/CPU.glb'
+      src='/assets/models/pc/CPU.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/CPU.webp'
+      poster='/assets/models/pc/CPU.webp'
       shadow-intensity='1'
       camera-orbit='244.4deg 73.1deg 2.882m'
       field-of-view='30deg'
@@ -2152,12 +2152,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/GPU.glb'
+      src='/assets/models/pc/GPU.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/GPU.webp'
+      poster='/assets/models/pc/GPU.webp'
       shadow-intensity='1'
       camera-orbit='32.49deg 80.66deg 0.2438m'
       field-of-view='30deg'
@@ -2178,12 +2178,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/PSU.glb'
+      src='/assets/models/pc/PSU.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/PSU.webp'
+      poster='/assets/models/pc/PSU.webp'
       shadow-intensity='1'
       camera-orbit='584.7deg 71.22deg 12.63m'
       field-of-view='30deg'
@@ -2204,12 +2204,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/waterCooling.glb'
+      src='/assets/models/pc/waterCooling.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/waterCooling.webp'
+      poster='/assets/models/pc/waterCooling.webp'
       shadow-intensity='1'
       camera-orbit='421.1deg 65.17deg 11.49m'
       field-of-view='30deg'
@@ -2230,12 +2230,12 @@ export default function App() {
             loading='eager'
           className='smallform3d'
           style='width:500px;height:600px;border-radius:38px;'
-        src='../src/assets/models/pc/motherBoard.glb'
+        src='/assets/models/pc/motherBoard.glb'
         ar
         ar-modes='webxr scene-viewer quick-look'
         camera-controls
         tone-mapping='commerce'
-        poster='../src/assets/models/pc/motherBoard.webp'
+        poster='/assets/models/pc/motherBoard.webp'
         shadow-intensity='1'
         camera-orbit='32.49deg 80.66deg 0.2438m'
         field-of-view='30deg'
@@ -2256,12 +2256,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/case.glb'
+      src='/assets/models/pc/case.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/case.webp'
+      poster='/assets/models/pc/case.webp'
       shadow-intensity='1'
       camera-orbit='418.1deg 65.93deg 0.5611m'
       field-of-view='30deg'
@@ -2282,12 +2282,12 @@ export default function App() {
           loading='eager'
         className='smallform3d'
         style='width:500px;height:600px;border-radius:38px;'
-      src='../src/assets/models/pc/M2.glb'
+      src='/assets/models/pc/M2.glb'
       ar
       ar-modes='webxr scene-viewer quick-look'
       camera-controls
       tone-mapping='commerce'
-      poster='../src/assets/models/pc/ssdm2.webp'
+      poster='/assets/models/pc/ssdm2.webp'
       shadow-intensity='1'
       camera-orbit='77.44deg 56.11deg 4.906m'
       field-of-view='25deg'
@@ -2308,12 +2308,12 @@ export default function App() {
             loading='eager'
           className='smallform3d'
           style='width:500px;height:600px;border-radius:38px;'
-        src='../src/assets/models/pc/radiator.glb'
+        src='/assets/models/pc/radiator.glb'
         ar
         ar-modes='webxr scene-viewer quick-look'
         camera-controls
         tone-mapping='commerce'
-        poster='../src/assets/models/pc/radiator.webp'
+        poster='/assets/models/pc/radiator.webp'
         shadow-intensity='1'
         camera-orbit='394.7deg 72.35deg 4.718m'
         field-of-view='30deg'

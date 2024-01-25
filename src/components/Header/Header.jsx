@@ -26,7 +26,7 @@ export default function Header() {
       <div className='container'>
         <HeaderContainer>
           <Link to='/' className={classes.logodf}>
-            <img src='../src/assets/img/icons8-3d-cube-96.png' alt='logo' />
+            <img src='/assets/img/icons8-3d-cube-96.png' alt='logo' />
             <LogoName>Explore3D</LogoName>
           </Link>
           <ul className={classes.menu}>
