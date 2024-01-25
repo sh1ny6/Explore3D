@@ -1752,6 +1752,33 @@ export default function App() {
                   </button>
                   <button
                     className='Hotspot'
+                    slot='hotspot-10'
+                    data-position='-0.02708023380011726m 0.705446783689814m 0.028028842886098637m'
+                    data-normal='-0.10483951168826751m 0.6665163049557039m 0.7380817651298268m'
+                    data-visibility-attribute='visible'
+                    data-models="<model-viewer
+                    loading='eager'
+                    className='smallform3d'
+                    style='width:500px;height:600px;border-radius:38px;'
+                  src='/assets/models/human/eye.glb'
+                                    ar
+                                    ar-modes='webxr scene-viewer quick-look'
+                                    camera-controls
+                                    tone-mapping='commerce'
+                                    shadow-intensity='1'
+                                    camera-orbit='17.24deg 74.61deg 28.41m'
+                                    field-of-view='30deg'  
+                                    auto-rotate
+                                    poster='/assets/models/human/eye.webp'
+                                  ></model-viewer>"
+                    data-title='Глаз'
+                    data-disc='Глаз — сенсорный орган (орган зрительной системы) человека, обладающий способностью воспринимать электромагнитное излучение в видимом диапазоне длин волн и обеспечивающий функцию зрения. У человека через глаз поступает около 90 % информации из окружающего мира.'
+                    onClick={openModal}
+                  >
+                    Глаз
+                  </button>
+                  <button
+                    className='Hotspot'
                     slot='hotspot-5'
                     data-position='-0.05681393147857536m 0.242493471754321m 0.057443865987130374m'
                     data-normal='-0.35121557071919957m 0.026260215221931248m 0.9359262919594069m'
