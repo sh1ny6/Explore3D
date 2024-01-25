@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import classes from './components/Header/Header.module.css';
 import { styled, keyframes } from 'styled-components';
+import Header from './components/Header/Header.jsx';
 // import EffectSection from './components/EffectSection/EffectSection';
 // import { cameraOrbitIntrinsics } from '@google/model-viewer/lib/features/controls';
 import { TypeAnimation } from 'react-type-animation';
@@ -223,28 +224,7 @@ export default function App() {
 
   return (
     <Router>
-      <>
-        <div className='container'>
-          <HeaderContainer>
-            <Link to='/' className={classes.logodf}>
-              <img src='/assets/img/icons8-3d-cube-96.png' alt='logo' />
-              <LogoName>Explore3D</LogoName>
-            </Link>
-            <ul className={classes.menu}>
-              <a className={classes.a} id='models' href='/#projects'>
-                <li>Материал</li>
-              </a>
-              <a className={classes.a} href='/#benefits'>
-                <li>Преимущества</li>
-              </a>
-              <a className={classes.a} href='/#about'>
-                <li>О создателях</li>
-              </a>
-            </ul>
-          </HeaderContainer>
-        </div>
-        <div className={`${classes.headerborder}`}></div>
-      </>
+      <Header />
       {modal && (
         <Modal open={modal}>
           <div className='modalwindow'>
