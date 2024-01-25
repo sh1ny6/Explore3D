@@ -9,7 +9,7 @@
   position: relative;
   width: 100%;
   &:hover {
-    cursor: url('../src/assets/cursor/move.cur');
+    cursor: url('/assets/cursor/move.cur');
   }
 }
 @media (min-width: 576px) {
@@ -50,7 +50,7 @@
 //   cursor: url('../src/assets/cursor/move.cur'), auto;
 // }
 .panel__h3:hover {
-  cursor: url('../src/assets/cursor/link.cur'), auto;
+  cursor: url('/assets/cursor/link.cur'), auto;
   background-color: #535353;
   transform: scale(0.95);
 }
@@ -60,7 +60,7 @@
   z-index: 2;
 }
 .GoBack:hover {
-  cursor: url('../src/assets/cursor/link.cur'), auto;
+  cursor: url('/assets/cursor/link.cur'), auto;
   background-color: #dedede80;
   border: 2px solid rgb(98, 98, 98);
 }
@@ -185,11 +185,11 @@
   height: 200px;
 }
 .sasha {
-  background-image: url(../src/assets/img/sasha.jpg);
+  background-image: url(/assets/img/sasha.jpg);
   background-position-y: -6px;
 }
 .vanya {
-  background-image: url(../src/assets/img/vanya.jpg);
+  background-image: url(/assets/img/vanya.jpg);
   background-position-y: -30px;
 }
 //
