@@ -610,7 +610,6 @@ export default function App() {
                   ar-modes='webxr scene-viewer quick-look'
                   camera-controls
                   poster='/assets/models/pc/newcomp.webp'
-                  autoplay='false'
                   shadow-intensity='1'
                   // auto-rotate
                   camera-orbit='37.39deg 71.99deg 0.5613m'
