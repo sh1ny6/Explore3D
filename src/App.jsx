@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import React from 'react';
 import './App.css';
-import classes from './components/Header/Header.module.css';
 import { styled, keyframes } from 'styled-components';
 import Header from './components/Header/Header.jsx';
 // import EffectSection from './components/EffectSection/EffectSection';
@@ -224,7 +223,7 @@ export default function App() {
 
   return (
     <Router>
-      <Header />
+      <Header className='header-max' />
       {modal && (
         <Modal open={modal}>
           <div className='modalwindow'>

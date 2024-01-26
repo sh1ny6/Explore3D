@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.a {
+.header__a {
   text-align: center;
   align-items: center;
   color: #181818;
@@ -35,4 +35,20 @@
 nav > ul {
   height: 50px;
   display: flex;
+}
+.headercontainer {
+  height: 140px;
+  display: flex;
+  padding: 0 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.logoname {
+  text-align: center;
+  align-items: center;
+  color: #181818;
+  text-decoration: none;
+  font-size: 36px;
+  border: none;
+  margin-left: 20px;
 }
