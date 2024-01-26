@@ -8,7 +8,11 @@ export default function Header() {
       <div className='container'>
         <div className='headercontainer'>
           <Link to='/' className='logodf'>
-            <img src='/assets/img/icons8-3d-cube-96.png' className='logoimg' alt='logo' />
+            <img
+              src='/assets/img/icons8-3d-cube-96.png'
+              className='logoimg'
+              alt='logo'
+            />
             <div className='logoname'>Explore3D</div>
           </Link>
           <ul className='menu'>

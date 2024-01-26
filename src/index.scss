@@ -345,6 +345,9 @@ button {
   }
 }
 @media (max-width: 480px) {
+  .project__el {
+    transform: scale(0.85);
+  }
   .index-module_type__E-SaG {
     margin-right: 0px;
     font-size: 2em;
