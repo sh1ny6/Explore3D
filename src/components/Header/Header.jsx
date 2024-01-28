@@ -22,9 +22,9 @@ export default function Header() {
             <a className='header__a' href='/#benefits'>
               <li>Преимущества</li>
             </a>
-            <a className='header__a' href='/#about'>
-              <li>О создателях</li>
-            </a>
+            <Link className='header__a' to='/about'>
+              <li>О проекте</li>
+            </Link>
           </ul>
         </div>
       </div>

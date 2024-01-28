@@ -26,144 +26,144 @@ const FadeIn = styled.div`
 const Zoom = styled.div`
   animation: 2s ${keyframes`${zoomIn}`};
 `;
-let HeaderContainer = styled.header`
-  height: 140px;
-  display: flex;
-  padding: 0 2rem;
-  justify-content: space-between;
-  align-items: center;
-`;
-let LogoName = styled.div`
-  text-align: center;
-  align-items: center;
-  color: #181818;
-  text-decoration: none;
-  font-size: 36px;
-  border: none;
-  margin-left: 20px;
-`;
+// let HeaderContainer = styled.header`
+//   height: 140px;
+//   display: flex;
+//   padding: 0 2rem;
+//   justify-content: space-between;
+//   align-items: center;
+// `;
+// let LogoName = styled.div`
+//   text-align: center;
+//   align-items: center;
+//   color: #181818;
+//   text-decoration: none;
+//   font-size: 36px;
+//   border: none;
+//   margin-left: 20px;
+// `;
 // let AlignItems = styled.div``;
-// dropdown context for open state
-const DropdownContext = React.createContext({
-  open: false,
-  setOpen: () => {},
-});
-// dropdown component for wrapping and providing context
-function Dropdown({ children, ...props }) {
-  const [open, setOpen] = React.useState(false);
-  const dropdownRef = React.useRef(null);
+// // dropdown context for open state
+// const DropdownContext = React.createContext({
+//   open: false,
+//   setOpen: () => {},
+// });
+// // dropdown component for wrapping and providing context
+// function Dropdown({ children, ...props }) {
+//   const [open, setOpen] = React.useState(false);
+//   const dropdownRef = React.useRef(null);
 
-  // click listeners for closing dropdown
-  React.useEffect(() => {
-    // close dropdown if click outside
-    function close(e) {
-      if (!dropdownRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    }
-    // add or remove event listener
-    if (open) {
-      window.addEventListener('click', close);
-    }
-    // cleanup
-    return function removeListener() {
-      window.removeEventListener('click', close);
-    };
-  }, [open]); // only run if open state changes
+//   // click listeners for closing dropdown
+//   React.useEffect(() => {
+//     // close dropdown if click outside
+//     function close(e) {
+//       if (!dropdownRef.current.contains(e.target)) {
+//         setOpen(false);
+//       }
+//     }
+//     // add or remove event listener
+//     if (open) {
+//       window.addEventListener('click', close);
+//     }
+//     // cleanup
+//     return function removeListener() {
+//       window.removeEventListener('click', close);
+//     };
+//   }, [open]); // only run if open state changes
 
-  return (
-    <DropdownContext.Provider value={{ open, setOpen }}>
-      <div ref={dropdownRef} className='relative m-1'>
-        {children}
-      </div>
-    </DropdownContext.Provider>
-  );
-}
+//   return (
+//     <DropdownContext.Provider value={{ open, setOpen }}>
+//       <div ref={dropdownRef} className='relative m-1'>
+//         {children}
+//       </div>
+//     </DropdownContext.Provider>
+//   );
+// }
 
-// dropdown button for triggering open
-function DropdownButton({ children, ...props }) {
-  const { open, setOpen } = React.useContext(DropdownContext); // get the context
+// // dropdown button for triggering open
+// function DropdownButton({ children, ...props }) {
+//   const { open, setOpen } = React.useContext(DropdownContext); // get the context
 
-  // to open and close the dropdown
-  function toggleOpen() {
-    setOpen(!open);
-  }
+//   // to open and close the dropdown
+//   function toggleOpen() {
+//     setOpen(!open);
+//   }
 
-  return (
-    <button
-      onClick={toggleOpen}
-      className='rounded px-4 py-2 font-bold text-white bg-gray-800 flex items-center'
-    >
-      {children}
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        width={15}
-        height={15}
-        strokeWidth={4}
-        stroke='currentColor'
-        className={`ml-2 ${open ? 'rotate-180' : 'rotate-0'}`}
-      >
-        <path
-          strokeLinecap='round'
-          strokeLinejoin='round'
-          d='M19.5 8.25l-7.5 7.5-7.5-7.5'
-        />
-      </svg>
-    </button>
-  );
-}
+//   return (
+//     <button
+//       onClick={toggleOpen}
+//       className='rounded px-4 py-2 font-bold text-white bg-gray-800 flex items-center'
+//     >
+//       {children}
+//       <svg
+//         xmlns='http://www.w3.org/2000/svg'
+//         fill='none'
+//         viewBox='0 0 24 24'
+//         width={15}
+//         height={15}
+//         strokeWidth={4}
+//         stroke='currentColor'
+//         className={`ml-2 ${open ? 'rotate-180' : 'rotate-0'}`}
+//       >
+//         <path
+//           strokeLinecap='round'
+//           strokeLinejoin='round'
+//           d='M19.5 8.25l-7.5 7.5-7.5-7.5'
+//         />
+//       </svg>
+//     </button>
+//   );
+// }
 
-// dropdown content for displaying dropdown
-function DropdownContent({ children }) {
-  const { open } = React.useContext(DropdownContext); // get the context
+// // dropdown content for displaying dropdown
+// function DropdownContent({ children }) {
+//   const { open } = React.useContext(DropdownContext); // get the context
 
-  return (
-    <div
-      className={`absolute z-20 rounded border border-gray-300 bg-white overflow-hidden my-1 overflow-y-auto ${
-        open ? 'shadow-md' : 'hidden'
-      }`}
-    >
-      {children}
-    </div>
-  );
-}
+//   return (
+//     <div
+//       className={`absolute z-20 rounded border border-gray-300 bg-white overflow-hidden my-1 overflow-y-auto ${
+//         open ? 'shadow-md' : 'hidden'
+//       }`}
+//     >
+//       {children}
+//     </div>
+//   );
+// }
 
-// dropdown list for dropdown menus
-function DropdownList({ children, ...props }) {
-  const { setOpen } = React.useContext(DropdownContext); // get the context
+// // dropdown list for dropdown menus
+// function DropdownList({ children, ...props }) {
+//   const { setOpen } = React.useContext(DropdownContext); // get the context
 
-  return (
-    <ul
-      onClick={() => setOpen(false)}
-      className='divide-y divide-gray-200 text-gray-700'
-      {...props}
-    >
-      {children}
-    </ul>
-  );
-}
+//   return (
+//     <ul
+//       onClick={() => setOpen(false)}
+//       className='divide-y divide-gray-200 text-gray-700'
+//       {...props}
+//     >
+//       {children}
+//     </ul>
+//   );
+// }
 
-// dropdown items for dropdown menus
-function DropdownItem({ children, ...props }) {
-  return (
-    <li>
-      <button
-        className='py-3 px-5 whitespace-nowrap hover:underline'
-        {...props}
-      >
-        {children}
-      </button>
-    </li>
-  );
-}
+// // dropdown items for dropdown menus
+// function DropdownItem({ children, ...props }) {
+//   return (
+//     <li>
+//       <button
+//         className='py-3 px-5 whitespace-nowrap hover:underline'
+//         {...props}
+//       >
+//         {children}
+//       </button>
+//     </li>
+//   );
+// }
 
-// optional - but I like this pattern to know it must be a child of Dropdown
-Dropdown.Button = DropdownButton;
-Dropdown.Content = DropdownContent;
-Dropdown.List = DropdownList;
-Dropdown.Item = DropdownItem;
+// // optional - but I like this pattern to know it must be a child of Dropdown
+// Dropdown.Button = DropdownButton;
+// Dropdown.Content = DropdownContent;
+// Dropdown.List = DropdownList;
+// Dropdown.Item = DropdownItem;
 
 export default function App() {
   const [cameraOrbit, setCameraOrbit] = useState('-317.1deg 69.51deg 13.51m');
@@ -588,11 +588,101 @@ export default function App() {
                     style={{ width: 700 }}
                   />
                 </div>
+                <Link
+                  to='/about'
+                  className='about__button'
+                  style={{ display: 'flex' }}
+                >
+                  <h3 className='about__button__h3 h3'>
+                    Подробнее о нашем проекте
+                  </h3>
+                  <img
+                    src='/assets/img/arrow2.svg'
+                    alt='arrow'
+                    className='about__button__img'
+                  />
+                </Link>
               </section>
             </>
           }
         ></Route>
-
+        <Route
+          path='/about'
+          element={
+            <>
+              <section
+                id='about'
+                className='aboutsite container'
+                style={{
+                  marginTop: 140,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  marginBottom: 100,
+                }}
+              >
+                <h2 className='h2 aboutsite__h2'>О нашем проекте</h2>
+                <div
+                  className='aboutsite__block'
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    color: 'black',
+                  }}
+                >
+                  <div className='aboutsite-tab'>
+                    <h3 className='aboutsite__lefth3'>
+                      {' '}
+                      Мы - уникальный интерактивный сайт, который поможет вам
+                      развить ваши навыки пространственного мышления с помощью{' '}
+                      <span className='aboutsite__bold'>3D-компонентов!</span>
+                    </h3>
+                    <img
+                      className='aboutsite__img abs__img-right'
+                      src='/assets/img/g1.svg'
+                      alt='img'
+                    />
+                  </div>
+                  <div className='aboutsite-tab'>
+                    <img
+                      className='aboutsite__img abs__img-right'
+                      src='/assets/img/g2.svg'
+                      alt='img'
+                    />
+                    <h3 className='aboutsite__righth3'>
+                      {' '}
+                      Тут вы найдете информацию, способствующую развитию вашей
+                      пространственной интуиции и логического мышления, ведь
+                      благодаря интерактивным{' '}
+                      <span className='aboutsite__bold'>3D-моделям</span> вы
+                      сможете полностью погрузиться в увлекательный трехмерный
+                      мир и узнать как устроен тот или иной объект в наших
+                      реалиях, тем самым развивая ваше пространственное
+                      мышление.
+                    </h3>
+                  </div>
+                  <div className='aboutsite-tab'>
+                    <h3 className='aboutsite__lefth3'>
+                      {' '}
+                      Наш сайт предлагает уникальный опыт, который поможет вам
+                      улучшить свои навыки и получить удовольствие от процесса
+                      обучения. Приходите и погрузитесь в мир трехмерных
+                      возможностей{' '}
+                      <span className='aboutsite__bold'>Прямо сейчас!</span>
+                    </h3>
+                    <img
+                      className='aboutsite__img'
+                      src='/assets/img/g3.svg'
+                      alt='img'
+                    />
+                  </div>
+                  <Link to='/' className='GoBack GoBack__add'>
+                    <h3 className='h3'>На главную</h3>
+                  </Link>
+                </div>
+              </section>
+            </>
+          }
+        ></Route>
         <Route
           path='/pc'
           element={
@@ -1774,29 +1864,16 @@ export default function App() {
           <p style={{ alignSelf: 'center' }}>
             © 2024 Explore3D. Все права защищены.
           </p>
-          <ul
-            className='footer__ul'
-            // className={classes.menu}
-          >
-            <a
-              // className={classes.a}
-              id='models'
-              href='/#projects'
-            >
+          <ul className='footer__ul'>
+            <a id='models' href='/#projects'>
               <li>Материал</li>
             </a>
-            <a
-              // className={classes.a}
-              href='/#benefits'
-            >
+            <a href='/#benefits'>
               <li>Преимущества</li>
             </a>
-            <a
-              // className={classes.a}
-              href='/#about'
-            >
-              <li>О создателях</li>
-            </a>
+            <Link to='/about'>
+              <li>О проекте</li>
+            </Link>
           </ul>
         </div>
       </footer>

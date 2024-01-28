@@ -23,7 +23,7 @@
   border: none;
   transition: 0.1s ease-in-out;
 }
-.a:hover {
+.header__a:hover {
   border-bottom: 1px solid #8a8a8a;
 }
 .headerborder {
